@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<!--[if lte IE 8 ]>
+<html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<!--
+***************  *      *     *
+      8          *    *       *
+      8          *  *         *
+      8          **           *
+      8          *  *         *
+      8          *    *       *
+      8          *      *     *
+      8          *        *   ***********    -----Theme By Kieran(http://go.kieran.top)
+-->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<!--<![endif]-->
+
+<head>
+  <title>Sublime插件 | YangQiwang&#39;s blog</title>
+  <!-- Meta data -->
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content="YangQiwang's blog">
+    <meta name="author" content="YangQiwang">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+
+    <!-- Favicon, (keep icon in root folder) -->
+    <link rel="Shortcut Icon" href="/img/favicon.ico" type="image/ico">
+
+    <link rel="alternate" href="/atom.xml" title="YangQiwang&#39;s blog" type="application/atom+xml">
+    <link rel="stylesheet" href="/css/all.css" media="screen" type="text/css">
+	
+    <link rel="stylesheet" href="/highlightjs/vs.css" type="text/css">
+    
+    
+
+    <!-- Custom stylesheet, (add custom styles here, always load last) -->
+    <!-- Load our stylesheet for IE8 -->
+    <!--[if IE 8]>
+    <link rel="stylesheet" type="text/css" href="/css/ie8.css" />
+    <![endif]-->
+
+    <!-- Google Webfonts (Monserrat 400/700, Open Sans 400/600) -->
+    <link href='//fonts.useso.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link href='//fonts.useso.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>
+
+    <!-- Load our fonts individually if IE8+, to avoid faux bold & italic rendering -->
+    <!--[if IE]>
+    <link href='http://fonts.useso.com/css?family=Montserrat:400' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.useso.com/css?family=Montserrat:700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.useso.com/css?family=Open+Sans:400' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.useso.com/css?family=Open+Sans:600' rel='stylesheet' type='text/css'>
+    <![endif]-->
+
+    <!-- jQuery | Load our jQuery, with an alternative source fallback to a local version if request is unavailable -->
+    <script src="/js/jquery-1.11.1.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery-1.11.1.min.js"><\/script>')</script>
+
+    <!-- Load these in the <head> for quicker IE8+ load times -->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="/js/html5shiv.min.js"></script>
+    <script src="/js/respond.min.js"></script>
+    <![endif]-->
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+
+  
+  <style>.col-md-8.col-md-offset-2.opening-statement img{display:none;}</style>
+</head>
+
+<!--
+<body class="post-template">
+-->
+<body id="index" class="lightnav animsition">
+
+      <!-- ============================ Off-canvas navigation =========================== -->
+
+    <div class="sb-slidebar sb-right sb-style-overlay sb-momentum-scrolling">
+        <div class="sb-close" aria-label="Close Menu" aria-hidden="true">
+            <img src="/img/close.png" alt="Close"/>
+        </div>
+        <!-- Lists in Slidebars -->
+        <ul class="sb-menu">
+            <li><a href="/" class="animsition-link" title="Home">Home</a></li>
+            <li><a href="/archives" class="animsition-link" title="archive">archives</a></li>
+            <!-- Dropdown Menu -->
+			 
+            <li>
+                <a class="sb-toggle-submenu">Works<span class="sb-caret"></span></a>
+                <ul class="sb-submenu">
+                    
+                        <li><a href="/" target="_BLANK" class="animsition-link">AAA</a></li>
+                    
+                        <li><a href="/atom.xml" target="_BLANK" class="animsition-link">BBB</a></li>
+                    
+                </ul>
+            </li>
+            
+            
+        	<li>
+        		<a class="sb-toggle-submenu">Categories<span class="sb-caret"></span></a>
+            	<ul class="sb-submenu">
+				  	
+				    <li><a href="/categories/Ajax/" class="animsition-link">Ajax<small>(1)</small></a></li>
+				    
+				    <li><a href="/categories/Chrome/" class="animsition-link">Chrome<small>(1)</small></a></li>
+				    
+				    <li><a href="/categories/HTML/" class="animsition-link">HTML<small>(4)</small></a></li>
+				    
+				    <li><a href="/categories/Hexo/" class="animsition-link">Hexo<small>(5)</small></a></li>
+				    
+				    <li><a href="/categories/Skill/" class="animsition-link">Skill<small>(1)</small></a></li>
+				    
+				    <li><a href="/categories/Tool/" class="animsition-link">Tool<small>(3)</small></a></li>
+				    
+				    <li><a href="/categories/WebFront/" class="animsition-link">WebFront<small>(1)</small></a></li>
+				    
+				</ul>
+        	</li>
+			
+            
+            <li>
+                <a class="sb-toggle-submenu">Links<span class="sb-caret"></span></a>
+                <ul class="sb-submenu">
+                    
+                    <li><a href="http://go.kieran.top/" class="animsition-link">Kieran</a></li>
+                    
+                    <li><a href="http://domain.com/" class="animsition-link">Name</a></li>
+                    
+                </ul>
+            </li>
+            
+        </ul>
+        <!-- Lists in Slidebars -->
+        <ul class="sb-menu secondary">
+            <li><a href="/about.html" class="animsition-link" title="about">About</a></li>
+            <li><a href="/atom.xml" class="animsition-link" title="rss">RSS</a></li>
+        </ul>
+    </div>
+    
+    <!-- ============================ END Off-canvas navigation =========================== -->
+
+    <!-- ============================ #sb-site Main Page Wrapper =========================== -->
+
+    <div id="sb-site">
+        <!-- #sb-site - All page content should be contained within this id, except the off-canvas navigation itself -->
+
+        <!-- ============================ Header & Logo bar =========================== -->
+
+        <div id="navigation" class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <!-- Nav logo -->
+                    <div class="logo">
+                        <a href="/" title="Logo" class="animsition-link">
+                         <img src="/img/logo.png" alt="Logo" width="35px;"/> 
+                        </a>
+                    </div>
+                    <!-- // Nav logo -->
+                    <!-- Info-bar -->
+                    <nav>
+                        <ul class="nav">
+                            <li><a href="/" class="animsition-link">YangQiwang's blog</a></li>
+                            <li class="nolink"><span>Always </span>Creative.</li>
+                            
+                            <li><a href="https://github.com/oo10" title="Github" target="_blank"><i class="icon-github"></i></a></li>
+                            
+                            
+                            
+                            
+                            
+                            <li><a href="http://weibo.com/272130055" title="Sina-Weibo" target="_blank"><i class="icon-sina-weibo"></i></a></li>
+                            
+                            <li class="nolink"><span>Welcome!</span></li>
+                        </ul>
+                    </nav>
+                    <!--// Info-bar -->
+                </div>
+                <!-- // .container -->
+                <div class="learnmore sb-toggle-right">More</div>
+                <button type="button" class="navbar-toggle menu-icon sb-toggle-right" title="More">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar before"></span>
+                <span class="icon-bar main"></span>
+                <span class="icon-bar after"></span>
+                </button>
+            </div>
+            <!-- // .navbar-inner -->
+        </div>
+
+        <!-- ============================ Header & Logo bar =========================== -->
+
+
+      
+<section id="intro">
+    <div class="container">
+        <div class="row col-md-offset-2">
+            <div class="col-md-8">
+    			<span class="post-meta">
+      <time datetime="2015-12-21T10:29:10.000Z" itemprop="datePublished">
+          2015-12-21
+      </time>
+    
+    
+    | 
+    <a href='/tags/Sublime/'>Sublime</a>
+    
+    
+</span>
+                <h1>Sublime插件</h1>
+            </div>
+        </div>
+        <div class="col-md-8 col-md-offset-2">
+      		<hr>
+<p>　　<strong>自用笔记：</strong>本文属于自用笔记，不做详解，仅供参考。在此记录自己已理解并开始遵循的前端代码规范。What How Why<br><a id="more"></a></p>
+<h2 id="安装有两个办法："><a href="#安装有两个办法：" class="headerlink" title="安装有两个办法："></a>安装有两个办法：</h2><blockquote>
+<p>1、直接把插件放到它的安装路径对应文件包packages里面去，不知道在哪的可以直接打开 preferences-&gt;Browse packages，放进去之后软件会自动检测。</p>
+<p>2、使用命令方式直接让软件自己下载安装。（使用package control组件）（前提：先安装下面那个package control插件)</p>
+<p>按下Ctrl+Shift+P调出命令面板，输入install， 调出 Install Package 选项并回车，然后在列表中选中要安装的插件。</p>
+<p>下载拷贝：然后把它放到package文件包中。没用过Github的朋友不知道在哪里下载。Download ZIP。然后把它解压，把文件夹放进package文件包，然后它就能检测到包啦！</p>
+<p>代码安装：Ctrl+shift+p、输入install、选择package install 过几秒会弹出另一个框。然后在输入框中输入你想要的插件关键字安装吧！大致就是这样，简单明了。下面介绍其他常用插件，安装方式同理！</p>
+<h3 id="常用插件："><a href="#常用插件：" class="headerlink" title="常用插件："></a>常用插件：</h3><ul>
+<li><a href="">package control（包裹组件）</a><ul>
+<li>通过快捷键 ctrl+` 或者 View &gt; Show Console 菜单打开控制台，然后粘贴对应的版本代码进去，然后回车让它安装。</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<p>适用于 Sublime Text 3：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">import  urllib.request,os;pf=&apos;Package Control.sublime-package&apos;;ipp=sublime.installed_packages_path();  * urllib.request.install_opener(urllib.request.build_opener(urllib.request.ProxyHandler())  * );open(os.path.join(ipp,pf),&apos;wb&apos;).write(urllib.request.urlopen(&apos;http://sublime.wbond.net/&apos;+pf.replace(&apos; &apos;,&apos;%20&apos;)).read())  *</div></pre></td></tr></table></figure>
+<p>适用于 Sublime Text 2：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">import  urllib2,os;pf=&apos;Package Control.sublime-package&apos;;ipp=sublime.installed_packages_path();  * os.makedirs(ipp)ifnotos.path.exists(ipp)elseNone;urllib2.install_opener(urllib2.build_opener(urllib2.ProxyHandler())  * );open(os.path.join(ipp,pf),&apos;wb&apos;).write(urllib2.urlopen(&apos;http://sublime.wbond.net/&apos;+pf.replace(&apos; &apos;,&apos;%20&apos;)).read())  * ;print(&apos;Please restart Sublime Text to finish installation&apos;)</div></pre></td></tr></table></figure>
+<p>当然了，有些时候这样你安装不进去的，就只能自个去下载安装包放到package文件里边去了（就是上边我说的那个文件夹)如果在Preferences → Package Settings 中看到 Package Control 这一项，说明安装成功。</p>
+<h2 id="插件整理"><a href="#插件整理" class="headerlink" title="插件整理"></a>插件整理</h2><blockquote>
+<h3 id="代码整理："><a href="#代码整理：" class="headerlink" title="代码整理："></a>代码整理：</h3></blockquote>
+<ul>
+<li><a href="">Tag（代码格式化）</a><ul>
+<li>全选Ctrl+A，Ctrl+Alt+F</li>
+</ul>
+</li>
+<li><a href="">HTMLBeautify（）</a><ul>
+<li>格式化HTML。</li>
+</ul>
+</li>
+<li><a href="">HTML/CSS/JS Prettify（代码格式化）</a><ul>
+<li>能够格式化css html和js。</li>
+<li>注意：格式化的文件路径中不能有中文，不然会报找不到node的错误（windows下）。</li>
+</ul>
+</li>
+<li><a href="">YUI Compressor（压缩JS和CSS文件） </a></li>
+<li><a href="">PHPTidy（整理与排版PHP代码）</a></li>
+<li><a href="">JsFormat（javascript格式化） </a><ul>
+<li>格式化js代码，这个插件很有用，我们有时在网上看到某些效果，想查看是怎么实现的，但是代码被压缩过，很难阅读，不用怕，用ST2打开，按下ctrl+alt+5（这是我设置的快捷键），即可让代码还原，莫非是武林中失传已久的“还我靓靓拳”。</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<h3 id="注释："><a href="#注释：" class="headerlink" title="注释："></a>注释：</h3></blockquote>
+<ul>
+<li><a href="">DocBlockr（代码自动注释生成） </a></li>
+<li><a href="">HtmlTidy（清理与排版你的HTML代码）</a></li>
+<li><a href="">AutoPEP8（）</a><ul>
+<li>格式化Python代码。</li>
+</ul>
+</li>
+<li><a href="">Alignment安装案例</a></li>
+<li><a href="">Alignment（代码补齐）补齐就是补齐~就像这样</a></li>
+</ul>
+<blockquote>
+<h3 id="代码简写："><a href="#代码简写：" class="headerlink" title="代码简写："></a>代码简写：</h3></blockquote>
+<ul>
+<li><a href="">SublimeCodeIntel（代码提示）</a><ul>
+<li>自动提示我们，可能要输入HTML代码内容</li>
+</ul>
+</li>
+<li><a href="">snippets（自定制代码补齐机制）</a><ul>
+<li>自定制代码补齐机制，</li>
+</ul>
+</li>
+<li><a href="">Emmet（Zen Coding 代码自动补齐） </a><ul>
+<li>通过简单的命令直接生成一大段代码！一个字又快又准，安装好插件后，使用Ctrl＋Alt＋Enter呼出ZenCoding。<br>我们可以用 div#content&gt;ul&gt;li<em>3&gt;a</em> [href=”javascript:void(0);”]{Links$} 这样短短的一句话，生成下面一段代码：<br>技巧：<br>前端必备，快速开发HTML/CSS</li>
+</ul>
+</li>
+</ul>
+<p>输入 div.wrapper&gt;div.header+div.main+div.footer 按下Tab，立刻变成</p>
+<p>或者按下ctrl+alt+enter，激发zencoding控制台，可看到整个动态的过程。</p>
+<blockquote>
+<h3 id="高亮显示："><a href="#高亮显示：" class="headerlink" title="高亮显示："></a>高亮显示：</h3></blockquote>
+<ul>
+<li><a href="">BracketHighlighter</a><ul>
+<li>BracketHighlighter高亮显示匹配的括号、引号和标签，BracketHighlighter这个插件能在左侧高亮显示匹配的括号、引号和标签，能匹配的<em> [] ,  ()   </em> ,  {} ,  “” ,  ‘’ , <tag></tag>等甚至是自定义的标签，当看到密密麻麻的代码分不清标签之间包容嵌套的关系时，这款插件就能很好地帮你理清楚代码结构，快速定位括号，引号和标签内的范围。</li>
+</ul>
+</li>
+<li><a href="">TrailingSpacer（高亮显示多余的空格和Tab）</a></li>
+</ul>
+<blockquote>
+<h3 id="颜色："><a href="#颜色：" class="headerlink" title="颜色："></a>颜色：</h3></blockquote>
+<ul>
+<li><a href="">ColorPicker （调色盘） </a><ul>
+<li>在编辑CSS样式的时候，ColorPicker可以让sublime text 内置一个调色盘，调好颜色，点击OK就会在光标处生成十六进制颜色代码。</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<h3 id="CSS："><a href="#CSS：" class="headerlink" title="CSS："></a>CSS：</h3></blockquote>
+<ul>
+<li><a href="">CSScomb（CSS属性排序） </a></li>
+<li><a href="">CSS3_Syntax（css语法高亮）</a><ul>
+<li>对css语法高亮的支持，view-syntax-css3选中css3就能使用css3高亮了。必须每条属性都加上分号，并且属性必须小写，不然不会高亮，有点鸡肋啊。</li>
+</ul>
+</li>
+<li><a href="">Prefixr（自动加-webkit前缀）</a><ul>
+<li>写 CSS可自动添加 -webkit 等私有词缀，Ctrl+Alt+X触发。</li>
+</ul>
+</li>
+<li><a href="">Autoprefixer（自动加前缀）</a><ul>
+<li>可以给css自动加前缀功能</li>
+</ul>
+</li>
+<li><a href="">Goto-CSS-Declaration（CSS文件跳转）</a><ul>
+<li>跳转到css文件该class的声明处，方便修改查看，如图下所示，注意对应的css文件要同时打开才行。</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<h3 id="编码："><a href="#编码：" class="headerlink" title="编码："></a>编码：</h3></blockquote>
+<ul>
+<li><a href="">GBK Encoding Support（GBK中文编码）</a><ul>
+<li>这个插件还是非常有用的，因为sublime 本身 不支持gbk编码，在utf8如此流行的今天，我们整站还是gbk编码，o(︶︿︶)o 唉，所以全靠这个插件了。</li>
+</ul>
+</li>
+<li><a href="">GBK to UTF8（编码转换）</a><ul>
+<li>将文件编码从GBK转换成UTF8，菜单 – File里面找。</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<h3 id="文档管理："><a href="#文档管理：" class="headerlink" title="文档管理："></a>文档管理：</h3></blockquote>
+<ul>
+<li><a href="">Nettus+ fetch （管理一些开源框架）</a><ul>
+<li>配置文件修改，Ctrl+Shift+P输入Fetch Manage，配置文档。通过输入fetch file，搜索框架名进行导入。</li>
+</ul>
+</li>
+<li><a href="">SideBarEnhancements（侧边栏增强） </a></li>
+<li><a href="">SyncedSideBar（侧边栏打开文件定位）</a><ul>
+<li>支持当前文件在左侧面板中定位，不错。</li>
+</ul>
+</li>
+<li><a href="">Hex-to-HSL-Color Hex（颜色模式转HSL颜色模式）</a></li>
+<li><a href="">advanceNewfile（面板随意添加文件）</a><ul>
+<li>按Ctrl+Alt+N，下方输入A\B\test.css就好了，test.css这个文件出现在某个文件夹。</li>
+</ul>
+</li>
+<li><a href="">SublimeTmpl （自定义新建文件） </a><ul>
+<li>默认已经添加了html、css、js等常见类型的面板，按ctrl+alt+h/ctrl+alt+c/ctrl+alt+j可新建这 3钟类型的文件，快捷键在这里\Packages\SublimeTmpl\Default (Windows).sublime-keymap, 模板文件在这里\Packages\SublimeTmpl\templates，可修改。 比如下边简单的html文件</li>
+</ul>
+</li>
+<li><a href="">DocBlockr（代码建立文档）</a><ul>
+<li>DocBlockr 可以使你很方便地对代码建立文档。它会解析函数，变量，和参数，根据它们自动生成文档范式，你的工作就是去填充对应的说明。</li>
+</ul>
+</li>
+<li><a href="">GotoRecent（历史文档记录）</a><ul>
+<li>打开最近的文件，系统有这个功能，但只能看最近8个，有点不爽，按ctrl+e，选择即可。</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<h3 id="语法识别："><a href="#语法识别：" class="headerlink" title="语法识别："></a>语法识别：</h3></blockquote>
+<ul>
+<li><a href="">jQuery（jQuery语法识别）</a><ul>
+<li>支持jquery的只能语法提示，很赞。</li>
+</ul>
+</li>
+<li><a href="">JavaScriptNext - ES6 Syntax（ES6语法识别）</a><ul>
+<li>提供ES6的语法支持。</li>
+</ul>
+</li>
+<li><a href="">WordPress（WordPress的函数）</a><ul>
+<li>集成一些WordPress的函数，对于像我这种经常要写WP模版和插件的人特别有用</li>
+</ul>
+</li>
+<li><a href="">Vintage（Vim模拟）</a><ul>
+<li>如果你习惯使用vim，那么可以安装这个插件，这个插件可以让sublime像vim一样。</li>
+</ul>
+</li>
+<li><a href="">LESS（LESS语法识别）</a><ul>
+<li>这是一个非常棒的插件，可以让sublime支持less的语法高亮和语法提示，对于搞less的同学灰常重要，不过多解释。</li>
+</ul>
+</li>
+<li><a href="">SCSS（SCSS语法识别）</a><ul>
+<li>支持scss的语法高亮，里面附带了好多CSS Snippet，无论现用或者改造成，都可节省不少时间。</li>
+</ul>
+</li>
+<li><a href="">Liquid（Liquid语法识别）</a><ul>
+<li>提供Liquid语法支持，如果你也写博客的话不妨试试。</li>
+</ul>
+</li>
+<li><a href="">Smarty（Smarty语法识别）</a><ul>
+<li>提供smarty语法的支持。Smarty插件默认的分隔符是{}，如果你使用的分隔符不同可以更改插件目录的Smarty.tmPreferences文件，找到其中的SMARTY_LDELIM和SMARTY_RDELIM，修改为你的分隔符即可。</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<h3 id="文件传输："><a href="#文件传输：" class="headerlink" title="文件传输："></a>文件传输：</h3></blockquote>
+<ul>
+<li><a href="">SFTP（编辑 FTP 或 SFTP 服务器上的文件）</a></li>
+<li><a href="">Package Syncing</a><ul>
+<li>最后推荐一个同步插件，这个插件可以在不同的机器同步配置信息和插件，非常方便，但鉴于国内的墙太高，我都是直接把插件给手动备份了，然后直接拖进去，或者直接去github上下载对应的包。</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<h3 id="其他："><a href="#其他：" class="headerlink" title="其他："></a>其他：</h3></blockquote>
+<ul>
+<li><a href="">Gits（集成 GitHub） </a></li>
+<li><a href="">Clipboard-history（粘贴板历史记录） </a><ul>
+<li>可以保存粘贴的历史，很赞的功能，再也不用担心历史丢失了。ctrl+alt+v可打开历史面板，上下选择即可，安装后会和默认的ctrl+shift+v（粘贴缩进）冲突，干掉这个快捷键。</li>
+</ul>
+</li>
+<li><a href="">lint（语法校验）：</a></li>
+<li><a href="">SublimeLinter（代码错误提示） 总体架构</a></li>
+<li><a href="">Jslint编程风格</a><ul>
+<li>Sub</li>
+</ul>
+</li>
+<li><a href="">Tradsim（中文繁字体和简体字转换） </a></li>
+<li><a href="">Terminal</a><ul>
+<li>可以sublime中，打开命令行，非常方便哦。</li>
+</ul>
+</li>
+<li><a href="">AllAutocomplete</a><ul>
+<li>自动完成插件，可在全部打开的文件中，自动完成。</li>
+</ul>
+</li>
+<li><a href="">HexViewer</a><ul>
+<li>提供十六进制文件查看功能。</li>
+</ul>
+</li>
+<li><a href="">MultiEditUtils</a><ul>
+<li>扩展多行编辑的功能。</li>
+</ul>
+</li>
+<li><a href="">IMESupport（输入框不更随着光标）</a><ul>
+<li></li>
+</ul>
+</li>
+</ul>
+<h2 id="主题（Themes）"><a href="#主题（Themes）" class="headerlink" title="主题（Themes）"></a>主题（Themes）</h2><p>Sublime Text有大量第三方主题：</p>
+<blockquote>
+<p>1、Facebook Material Theme</p>
+<p>2、Soda</p>
+</blockquote>
+
+            <div class="clearfix"></div>
+            <hr class="nogutter">
+        </div>
+        <nav class="pagination" role="pagination">
+    
+    <a class="pull-left" href="/Sublimebest/" style="float: left;">
+        ← Sublime Text历练
+    </a>
+    
+    
+    <a class="pull-right" href="/GitHub+Hexo/">
+        使用GitHub搭建Hexo博客 →
+    </a>
+    
+</nav>
+
+        <div class="duoshuo">
+<div class="ds-thread" data-thread-key="SublimePackage/" data-title="Sublime插件" data-url="http://yoursite.com/SublimePackage/"></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"duoshuo_name"};
+(function() {
+	var ds = document.createElement('script');
+	ds.type = 'text/javascript';ds.async = true;
+	ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+	ds.charset = 'UTF-8';
+	(document.getElementsByTagName('head')[0] 
+	 || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script>
+</div>
+    </div>
+</section>
+
+
+      
+<!-- ============================ Footer =========================== -->
+
+<footer>
+    <div class="container">
+            <div class="copy">
+                <p>
+                    &copy; 2014<script>new Date().getFullYear()>2010&&document.write("-"+new Date().getFullYear());</script>, Content By YangQiwang. All Rights Reserved.
+                </p>
+                <p>Theme By <a href="//go.kieran.top" style="color: #767D84">Kieran</a></p>
+            </div>
+            <div class="social">
+                <ul>
+                    
+                    <li><a href="https://github.com/oo10" title="Github" target="_blank"><i class="icon-github"></i></a>&nbsp;</li>
+                    
+                    
+                    
+                    
+                    
+                    <li><a href="http://weibo.com/272130055" title="Sina-Weibo" target="_blank"><i class="icon-sina-weibo"></i></a>&nbsp;</li>
+                    
+                </ul>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+</footer>
+
+<!-- ============================ END Footer =========================== -->
+      <!-- Load our scripts -->
+<!-- Resizable 'on-demand' full-height hero -->
+<script type="text/javascript">
+    var resizeHero = function () {
+        var hero = $(".cover,.heightblock"),
+            window1 = $(window);
+        hero.css({
+            "height": window1.height()
+        });
+    };
+
+    resizeHero();
+
+    $(window).resize(function () {
+        resizeHero();
+    });
+</script>
+<script src="/js/plugins.min.js"></script><!-- Bootstrap core and concatenated plugins always load here -->
+<script src="/js/jquery.flexslider-min.js"></script><!-- Flexslider plugin -->
+<script src="/js/scripts.js"></script><!-- Theme scripts -->
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$('#intro').find('img').each(function(){
+  var alt = this.alt;
+
+  if (alt){
+    $(this).after('<span class="caption" style="display:none">' + alt + '</span>');
+  }
+
+  $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox" rel="gallery" />');
+});
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+<!-- Initiate flexslider plugin -->
+<script type="text/javascript">
+    $(document).ready(function($) {
+      $('.flexslider').flexslider({
+        animation: "fade",
+        prevText: "",
+        nextText: "",
+        directionNav: true
+      });
+    });
+</script>
+
+</body>
+</html>
