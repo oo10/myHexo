@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<!--[if lte IE 8 ]>
+<html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<!--<![endif]-->
+
+<head>
+  <title>周会分享- 前端黑魔法 | YangQiwang&#39;s blog</title>
+  <!-- Meta data -->
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content="YangQiwang's blog">
+    <meta name="author" content="YangQiwang">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+
+    <!-- Favicon, (keep icon in root folder) -->
+    <link rel="Shortcut Icon" href="/img/favicon.ico" type="image/ico">
+
+    <link rel="alternate" href="/atom.xml" title="YangQiwang&#39;s blog" type="application/atom+xml">
+    <link rel="stylesheet" href="/css/all.css" media="screen" type="text/css">
+	
+    <link rel="stylesheet" href="/highlightjs/vs.css" type="text/css">
+    
+    
+
+    <!-- Custom stylesheet, (add custom styles here, always load last) -->
+    <!-- Load our stylesheet for IE8 -->
+    <!--[if IE 8]>
+    <link rel="stylesheet" type="text/css" href="/css/ie8.css" />
+    <![endif]-->
+
+    <!-- Google Webfonts (Monserrat 400/700, Open Sans 400/600) -->
+    <!--<link href='//fonts.useso.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>-->
+    <style>
+        @font-face {
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 400;
+            src: local('Montserrat-Regular'), url(http://fontstatic.useso.com/s/montserrat/v7/zhcz-_WihjSQC0oHJ9TCYBsxEYwM7FgeyaSgU71cLG0.woff) format('woff');
+        }
+
+        @font-face {
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 700;
+            src: local('Montserrat-Bold'), url(http://fontstatic.useso.com/s/montserrat/v7/IQHow_FEYlDC4Gzy_m8fcgFhaRv2pGgT5Kf0An0s4MM.woff) format('woff');
+        }
+    </style>
+    <!--<link href='//fonts.useso.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>-->
+    <style>
+        /* cyrillic-ext */
+        @font-face {
+            font-family: 'Open Sans';
+            font-style: normal;
+            font-weight: 400;
+            src: local('Open Sans'), local('OpenSans'), url(http://fontstatic.useso.com/s/opensans/v13/K88pR3goAWT7BTt32Z01mxJtnKITppOI_IvcXXDNrsc.woff2) format('woff2');
+            unicode-range: U+0460-052F, U+20B4, U+2DE0-2DFF, U+A640-A69F;
+        }
+        /* cyrillic */
+        @font-face {
+            font-family: 'Open Sans';
+            font-style: normal;
+            font-weight: 400;
+            src: local('Open Sans'), local('OpenSans'), url(http://fontstatic.useso.com/s/opensans/v13/RjgO7rYTmqiVp7vzi-Q5URJtnKITppOI_IvcXXDNrsc.woff2) format('woff2');
+            unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+        }
+        /* greek-ext */
+        @font-face {
+            font-family: 'Open Sans';
+            font-style: normal;
+            font-weight: 400;
+            src: local('Open Sans'), local('OpenSans'), url(http://fontstatic.useso.com/s/opensans/v13/LWCjsQkB6EMdfHrEVqA1KRJtnKITppOI_IvcXXDNrsc.woff2) format('woff2');
+            unicode-range: U+1F00-1FFF;
+        }
+        /* greek */
+        @font-face {
+            font-family: 'Open Sans';
+            font-style: normal;
+            font-weight: 400;
+            src: local('Open Sans'), local('OpenSans'), url(http://fontstatic.useso.com/s/opensans/v13/xozscpT2726on7jbcb_pAhJtnKITppOI_IvcXXDNrsc.woff2) format('woff2');
+            unicode-range: U+0370-03FF;
+        }
+        /* vietnamese */
+        @font-face {
+            font-family: 'Open Sans';
+            font-style: normal;
+            font-weight: 400;
+            src: local('Open Sans'), local('OpenSans'), url(http://fontstatic.useso.com/s/opensans/v13/59ZRklaO5bWGqF5A9baEERJtnKITppOI_IvcXXDNrsc.woff2) format('woff2');
+            unicode-range: U+0102-0103, U+1EA0-1EF9, U+20AB;
+        }
+        /* latin-ext */
+        @font-face {
+            font-family: 'Open Sans';
+            font-style: normal;
+            font-weight: 400;
+            src: local('Open Sans'), local('OpenSans'), url(http://fontstatic.useso.com/s/opensans/v13/u-WUoqrET9fUeobQW7jkRRJtnKITppOI_IvcXXDNrsc.woff2) format('woff2');
+            unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+        }
+        /* latin */
+        @font-face {
+            font-family: 'Open Sans';
+            font-style: normal;
+            font-weight: 400;
+            src: local('Open Sans'), local('OpenSans'), url(http://fontstatic.useso.com/s/opensans/v13/cJZKeOuBrn4kERxqtaUH3VtXRa8TVwTICgirnJhmVJw.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+        }
+        /* cyrillic-ext */
+        @font-face {
+            font-family: 'Open Sans';
+            font-style: normal;
+            font-weight: 600;
+            src: local('Open Sans Semibold'), local('OpenSans-Semibold'), url(http://fontstatic.useso.com/s/opensans/v13/MTP_ySUJH_bn48VBG8sNSq-j2U0lmluP9RWlSytm3ho.woff2) format('woff2');
+            unicode-range: U+0460-052F, U+20B4, U+2DE0-2DFF, U+A640-A69F;
+        }
+        /* cyrillic */
+        @font-face {
+            font-family: 'Open Sans';
+            font-style: normal;
+            font-weight: 600;
+            src: local('Open Sans Semibold'), local('OpenSans-Semibold'), url(http://fontstatic.useso.com/s/opensans/v13/MTP_ySUJH_bn48VBG8sNSpX5f-9o1vgP2EXwfjgl7AY.woff2) format('woff2');
+            unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+        }
+        /* greek-ext */
+        @font-face {
+            font-family: 'Open Sans';
+            font-style: normal;
+            font-weight: 600;
+            src: local('Open Sans Semibold'), local('OpenSans-Semibold'), url(http://fontstatic.useso.com/s/opensans/v13/MTP_ySUJH_bn48VBG8sNShWV49_lSm1NYrwo-zkhivY.woff2) format('woff2');
+            unicode-range: U+1F00-1FFF;
+        }
+        /* greek */
+        @font-face {
+            font-family: 'Open Sans';
+            font-style: normal;
+            font-weight: 600;
+            src: local('Open Sans Semibold'), local('OpenSans-Semibold'), url(http://fontstatic.useso.com/s/opensans/v13/MTP_ySUJH_bn48VBG8sNSqaRobkAwv3vxw3jMhVENGA.woff2) format('woff2');
+            unicode-range: U+0370-03FF;
+        }
+        /* vietnamese */
+        @font-face {
+            font-family: 'Open Sans';
+            font-style: normal;
+            font-weight: 600;
+            src: local('Open Sans Semibold'), local('OpenSans-Semibold'), url(http://fontstatic.useso.com/s/opensans/v13/MTP_ySUJH_bn48VBG8sNSv8zf_FOSsgRmwsS7Aa9k2w.woff2) format('woff2');
+            unicode-range: U+0102-0103, U+1EA0-1EF9, U+20AB;
+        }
+        /* latin-ext */
+        @font-face {
+            font-family: 'Open Sans';
+            font-style: normal;
+            font-weight: 600;
+            src: local('Open Sans Semibold'), local('OpenSans-Semibold'), url(http://fontstatic.useso.com/s/opensans/v13/MTP_ySUJH_bn48VBG8sNSj0LW-43aMEzIO6XUTLjad8.woff2) format('woff2');
+            unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+        }
+        /* latin */
+        @font-face {
+            font-family: 'Open Sans';
+            font-style: normal;
+            font-weight: 600;
+            src: local('Open Sans Semibold'), local('OpenSans-Semibold'), url(http://fontstatic.useso.com/s/opensans/v13/MTP_ySUJH_bn48VBG8sNSugdm0LZdjqr5-oayXSOefg.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+        }
+    </style>
+    <!-- Load our fonts individually if IE8+, to avoid faux bold & italic rendering -->
+    <!--[if IE]>
+    <!--<link href='http://fonts.useso.com/css?family=Montserrat:400' rel='stylesheet' type='text/css'>-->
+    <style>
+        /* latin */
+        @font-face {
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 400;
+            src: local('Montserrat-Regular'), url(http://fontstatic.useso.com/s/montserrat/v7/zhcz-_WihjSQC0oHJ9TCYPk_vArhqVIZ0nv9q090hN8.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+        }
+    </style>
+    <!--<link href='http://fonts.useso.com/css?family=Montserrat:700' rel='stylesheet' type='text/css'>-->
+    <style>
+        /* latin */
+        @font-face {
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 400;
+            src: local('Montserrat-Regular'), url(http://fontstatic.useso.com/s/montserrat/v7/zhcz-_WihjSQC0oHJ9TCYPk_vArhqVIZ0nv9q090hN8.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+        }
+        /* latin */
+        @font-face {
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 400;
+            src: local('Montserrat-Regular'), url(http://fontstatic.useso.com/s/montserrat/v7/zhcz-_WihjSQC0oHJ9TCYPk_vArhqVIZ0nv9q090hN8.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+        }
+    </style>
+    <!--<link href='http://fonts.useso.com/css?family=Open+Sans:400' rel='stylesheet' type='text/css'>-->
+    <style>
+        /* cyrillic-ext */
+        @font-face {
+            font-family: 'Open Sans';
+            font-style: normal;
+            font-weight: 400;
+            src: local('Open Sans'), local('OpenSans'), url(http://fontstatic.useso.com/s/opensans/v13/K88pR3goAWT7BTt32Z01mxJtnKITppOI_IvcXXDNrsc.woff2) format('woff2');
+            unicode-range: U+0460-052F, U+20B4, U+2DE0-2DFF, U+A640-A69F;
+        }
+        /* cyrillic */
+        @font-face {
+            font-family: 'Open Sans';
+            font-style: normal;
+            font-weight: 400;
+            src: local('Open Sans'), local('OpenSans'), url(http://fontstatic.useso.com/s/opensans/v13/RjgO7rYTmqiVp7vzi-Q5URJtnKITppOI_IvcXXDNrsc.woff2) format('woff2');
+            unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+        }
+        /* greek-ext */
+        @font-face {
+            font-family: 'Open Sans';
+            font-style: normal;
+            font-weight: 400;
+            src: local('Open Sans'), local('OpenSans'), url(http://fontstatic.useso.com/s/opensans/v13/LWCjsQkB6EMdfHrEVqA1KRJtnKITppOI_IvcXXDNrsc.woff2) format('woff2');
+            unicode-range: U+1F00-1FFF;
+        }
+        /* greek */
+        @font-face {
+            font-family: 'Open Sans';
+            font-style: normal;
+            font-weight: 400;
+            src: local('Open Sans'), local('OpenSans'), url(http://fontstatic.useso.com/s/opensans/v13/xozscpT2726on7jbcb_pAhJtnKITppOI_IvcXXDNrsc.woff2) format('woff2');
+            unicode-range: U+0370-03FF;
+        }
+        /* vietnamese */
+        @font-face {
+            font-family: 'Open Sans';
+            font-style: normal;
+            font-weight: 400;
+            src: local('Open Sans'), local('OpenSans'), url(http://fontstatic.useso.com/s/opensans/v13/59ZRklaO5bWGqF5A9baEERJtnKITppOI_IvcXXDNrsc.woff2) format('woff2');
+            unicode-range: U+0102-0103, U+1EA0-1EF9, U+20AB;
+        }
+        /* latin-ext */
+        @font-face {
+            font-family: 'Open Sans';
+            font-style: normal;
+            font-weight: 400;
+            src: local('Open Sans'), local('OpenSans'), url(http://fontstatic.useso.com/s/opensans/v13/u-WUoqrET9fUeobQW7jkRRJtnKITppOI_IvcXXDNrsc.woff2) format('woff2');
+            unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+        }
+        /* latin */
+        @font-face {
+            font-family: 'Open Sans';
+            font-style: normal;
+            font-weight: 400;
+            src: local('Open Sans'), local('OpenSans'), url(http://fontstatic.useso.com/s/opensans/v13/cJZKeOuBrn4kERxqtaUH3VtXRa8TVwTICgirnJhmVJw.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+        }
+    </style>
+    <!--<link href='http://fonts.useso.com/css?family=Open+Sans:600' rel='stylesheet' type='text/css'>-->
+    <style>
+        /* cyrillic-ext */
+        @font-face {
+            font-family: 'Open Sans';
+            font-style: normal;
+            font-weight: 600;
+            src: local('Open Sans Semibold'), local('OpenSans-Semibold'), url(http://fontstatic.useso.com/s/opensans/v13/MTP_ySUJH_bn48VBG8sNSq-j2U0lmluP9RWlSytm3ho.woff2) format('woff2');
+            unicode-range: U+0460-052F, U+20B4, U+2DE0-2DFF, U+A640-A69F;
+        }
+        /* cyrillic */
+        @font-face {
+            font-family: 'Open Sans';
+            font-style: normal;
+            font-weight: 600;
+            src: local('Open Sans Semibold'), local('OpenSans-Semibold'), url(http://fontstatic.useso.com/s/opensans/v13/MTP_ySUJH_bn48VBG8sNSpX5f-9o1vgP2EXwfjgl7AY.woff2) format('woff2');
+            unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+        }
+        /* greek-ext */
+        @font-face {
+            font-family: 'Open Sans';
+            font-style: normal;
+            font-weight: 600;
+            src: local('Open Sans Semibold'), local('OpenSans-Semibold'), url(http://fontstatic.useso.com/s/opensans/v13/MTP_ySUJH_bn48VBG8sNShWV49_lSm1NYrwo-zkhivY.woff2) format('woff2');
+            unicode-range: U+1F00-1FFF;
+        }
+        /* greek */
+        @font-face {
+            font-family: 'Open Sans';
+            font-style: normal;
+            font-weight: 600;
+            src: local('Open Sans Semibold'), local('OpenSans-Semibold'), url(http://fontstatic.useso.com/s/opensans/v13/MTP_ySUJH_bn48VBG8sNSqaRobkAwv3vxw3jMhVENGA.woff2) format('woff2');
+            unicode-range: U+0370-03FF;
+        }
+        /* vietnamese */
+        @font-face {
+            font-family: 'Open Sans';
+            font-style: normal;
+            font-weight: 600;
+            src: local('Open Sans Semibold'), local('OpenSans-Semibold'), url(http://fontstatic.useso.com/s/opensans/v13/MTP_ySUJH_bn48VBG8sNSv8zf_FOSsgRmwsS7Aa9k2w.woff2) format('woff2');
+            unicode-range: U+0102-0103, U+1EA0-1EF9, U+20AB;
+        }
+        /* latin-ext */
+        @font-face {
+            font-family: 'Open Sans';
+            font-style: normal;
+            font-weight: 600;
+            src: local('Open Sans Semibold'), local('OpenSans-Semibold'), url(http://fontstatic.useso.com/s/opensans/v13/MTP_ySUJH_bn48VBG8sNSj0LW-43aMEzIO6XUTLjad8.woff2) format('woff2');
+            unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+        }
+        /* latin */
+        @font-face {
+            font-family: 'Open Sans';
+            font-style: normal;
+            font-weight: 600;
+            src: local('Open Sans Semibold'), local('OpenSans-Semibold'), url(http://fontstatic.useso.com/s/opensans/v13/MTP_ySUJH_bn48VBG8sNSugdm0LZdjqr5-oayXSOefg.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+        }
+    </style>
+    <![endif]-->
+
+    <!-- jQuery | Load our jQuery, with an alternative source fallback to a local version if request is unavailable -->
+    <script src="/js/jquery-1.11.1.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery-1.11.1.min.js"><\/script>')</script>
+
+    <!-- Load these in the <head> for quicker IE8+ load times -->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="/js/html5shiv.min.js"></script>
+    <script src="/js/respond.min.js"></script>
+    <![endif]-->
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+
+  
+  <style>.col-md-8.col-md-offset-2.opening-statement img{display:none;}</style>
+</head>
+
+<!--
+<body class="post-template">
+-->
+<body id="index" class="lightnav animsition">
+
+      <!-- ============================ Off-canvas navigation =========================== -->
+
+    <div class="sb-slidebar sb-right sb-style-overlay sb-momentum-scrolling">
+        <div class="sb-close" aria-label="Close Menu" aria-hidden="true">
+            <img src="/img/close.png" alt="Close"/>
+        </div>
+        <!-- Lists in Slidebars -->
+        <ul class="sb-menu">
+            <li><a href="/" class="animsition-link" title="Home">Home</a></li>
+            <li><a href="/archives" class="animsition-link" title="archive">archives</a></li>
+            <!-- Dropdown Menu -->
+			 
+            <li>
+                <a class="sb-toggle-submenu">Works<span class="sb-caret"></span></a>
+                <ul class="sb-submenu">
+                    
+                        <li><a href="/" target="_BLANK" class="animsition-link">AAA</a></li>
+                    
+                        <li><a href="/atom.xml" target="_BLANK" class="animsition-link">BBB</a></li>
+                    
+                </ul>
+            </li>
+            
+            
+        	<li>
+        		<a class="sb-toggle-submenu">Categories<span class="sb-caret"></span></a>
+            	<ul class="sb-submenu">
+				  	
+				    <li><a href="/categories/Ajax/" class="animsition-link">Ajax<small>(1)</small></a></li>
+				    
+				    <li><a href="/categories/Chrome/" class="animsition-link">Chrome<small>(1)</small></a></li>
+				    
+				    <li><a href="/categories/HTML/" class="animsition-link">HTML<small>(6)</small></a></li>
+				    
+				    <li><a href="/categories/Hexo/" class="animsition-link">Hexo<small>(5)</small></a></li>
+				    
+				    <li><a href="/categories/Skill/" class="animsition-link">Skill<small>(1)</small></a></li>
+				    
+				    <li><a href="/categories/Tool/" class="animsition-link">Tool<small>(3)</small></a></li>
+				    
+				    <li><a href="/categories/WebFront/" class="animsition-link">WebFront<small>(1)</small></a></li>
+				    
+				</ul>
+        	</li>
+			
+            
+            <li>
+                <a class="sb-toggle-submenu">Links<span class="sb-caret"></span></a>
+                <ul class="sb-submenu">
+                    
+                    <li><a href="http://go.kieran.top/" class="animsition-link">Kieran</a></li>
+                    
+                    <li><a href="http://domain.com/" class="animsition-link">Name</a></li>
+                    
+                </ul>
+            </li>
+            
+        </ul>
+        <!-- Lists in Slidebars -->
+        <ul class="sb-menu secondary">
+            <li><a href="/about.html" class="animsition-link" title="about">About</a></li>
+            <li><a href="/atom.xml" class="animsition-link" title="rss">RSS</a></li>
+        </ul>
+    </div>
+    
+    <!-- ============================ END Off-canvas navigation =========================== -->
+
+    <!-- ============================ #sb-site Main Page Wrapper =========================== -->
+
+    <div id="sb-site">
+        <!-- #sb-site - All page content should be contained within this id, except the off-canvas navigation itself -->
+
+        <!-- ============================ Header & Logo bar =========================== -->
+
+        <div id="navigation" class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <!-- Nav logo -->
+                    <div class="logo">
+                        <a href="/" title="Logo" class="animsition-link">
+                         <img src="/img/logo.png" alt="Logo" width="35px;"/> 
+                        </a>
+                    </div>
+                    <!-- // Nav logo -->
+                    <!-- Info-bar -->
+                    <nav>
+                        <ul class="nav">
+                            <li><a href="/" class="animsition-link">YangQiwang's blog</a></li>
+                            <li class="nolink"><span>Always </span>Creative.</li>
+                            
+                            <li><a href="https://github.com/oo10" title="Github" target="_blank"><i class="icon-github"></i></a></li>
+                            
+                            
+                            
+                            
+                            
+                            <li><a href="http://weibo.com/272130055" title="Sina-Weibo" target="_blank"><i class="icon-sina-weibo"></i></a></li>
+                            
+                            <li class="nolink"><span>Welcome!</span></li>
+                        </ul>
+                    </nav>
+                    <!--// Info-bar -->
+                </div>
+                <!-- // .container -->
+                <div class="learnmore sb-toggle-right">More</div>
+                <button type="button" class="navbar-toggle menu-icon sb-toggle-right" title="More">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar before"></span>
+                <span class="icon-bar main"></span>
+                <span class="icon-bar after"></span>
+                </button>
+            </div>
+            <!-- // .navbar-inner -->
+        </div>
+
+        <!-- ============================ Header & Logo bar =========================== -->
+
+
+      
+<section id="intro">
+    <div class="container">
+        <div class="row col-md-offset-2">
+            <div class="col-md-8">
+    			<span class="post-meta">
+      <time datetime="2016-11-20T16:00:00.000Z" itemprop="datePublished">
+          2016-11-21
+      </time>
+    
+    
+    | 
+    <a href='/tags/周会分享/'>周会分享</a>
+    
+    
+</span>
+                <h1>周会分享- 前端黑魔法</h1>
+            </div>
+        </div>
+        <div class="col-md-8 col-md-offset-2">
+      		<p>　　** 实习期间周会分享内容</p>
+<a id="more"></a>
+<p><img src="https://img.alicdn.com/imgextra/i1/1876943437/TB2fja2el9J.eBjy0FoXXXyvpXa_!!1876943437.png_620x10000.jpg" alt=""></p>
+<hr>
+<h2 id="链接嵌套"><a href="#链接嵌套" class="headerlink" title="链接嵌套"></a>链接嵌套</h2><p>我们都知道在前端开发当中，超链接<code>&lt;a&gt;</code>标签嵌套<code>&lt;a&gt;</code>标签会出问题：浏览器解析的时候，会自动闭合标签，将它们解析成不嵌套的。</p>
+<p>比如:<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#url1"</span>&gt;</span>When the crisis was over,  </div><div class="line">  <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#url2"</span>&gt;</span>Mr.Y<span class="tag">&lt;/<span class="name">a</span>&gt;</span>    </div><div class="line">    left the region immediately.<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>浏览器解析后的HTML会变成这样:<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#url1"</span>&gt;</span>When the crisis was over,<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#url2"</span>&gt;</span>Mr.Y<span class="tag">&lt;/<span class="name">a</span>&gt;</span>        </div><div class="line">    left the region immediately.</div></pre></td></tr></table></figure></p>
+<p><img src="https://img.alicdn.com/imgextra/i1/1876943437/TB2_uOpemiJ.eBjSspiXXbqAFXa_!!1876943437.png" alt=""></p>
+<p>而实际上我们需要的是:<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#url1"</span>&gt;</span>When the crisis was over,<span class="tag">&lt;/<span class="name">a</span>&gt;</span>  </div><div class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#url2"</span>&gt;</span>Mr. Jones<span class="tag">&lt;/<span class="name">a</span>&gt;</span> </div><div class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#url1"</span>&gt;</span>left the region immediately.<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>曾经为了达到此的效果，只能这样老实的写HTML代码，然而是存在一定的黑魔法的。<br>那就是给<code>&lt;a&gt;</code>标签内部的<code>&lt;a&gt;</code>标签外添加一个<code>&lt;object&gt;</code>标签。如下所示：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#url1"</span>&gt;</span>When the crisis was over,  </div><div class="line">  <span class="tag">&lt;<span class="name">object</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#url2"</span>&gt;</span>Mr.Y<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">object</span>&gt;</span>    </div><div class="line">    left the region immediately.<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>浏览器解析后的HTML:<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#url1"</span>&gt;</span>When the crisis was over,<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#url2"</span>&gt;</span>Mr.Y<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#url1"</span>&gt;</span>left the region immediately.<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>效果:</p>
+<p><img src="https://img.alicdn.com/imgextra/i2/1876943437/TB2qd5teg9J.eBjSsppXXXAAVXa_!!1876943437.png" alt=""></p>
+<hr>
+<h2 id="图片自适应"><a href="#图片自适应" class="headerlink" title="图片自适应"></a>图片自适应</h2><p>官方对 <code>object-fit</code> 和 <code>object-position</code> 的解释:</p>
+<blockquote>
+<p>The object-fit CSS property specifies how the contents of a replaced element should be fitted to the box established by its used height and width.</p>
+<p>The object-position property determines the alignment of the replaced element inside its box.<br>这里的object实际上指的是replaced element,也就是说这俩属性只针对替换元素有作用，比如img图片、HTML5 video等…<br>什么是替换元素???比如img标签，它本身没有实际的内容，通过src属性来判断显示具体的内容进行替换。</p>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">img</span> &#123;</div><div class="line">    <span class="attribute">width</span>: <span class="number">120px</span>;</div><div class="line">    <span class="attribute">height</span>: <span class="number">180px</span>;</div><div class="line">    <span class="attribute">border</span>: <span class="number">1px</span> solid;</div><div class="line">    <span class="attribute">background-color</span>: <span class="number">#eee</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>我们来看效果，原始图片:</p>
+<p><img src="https://img.alicdn.com/imgextra/i1/1876943437/TB2H984eQWM.eBjSZFhXXbdWpXa_!!1876943437.png" alt=""></p>
+<p>应用了各个属性之后的图片，可以对照示意感受下，什么是内容拉伸(fill)，什么是内容全部都显示(contain)，什么是容器没有留白(cover)，什么是该多大就多大(none)。</p>
+<p><img src="https://img.alicdn.com/imgextra/i4/1876943437/TB2GzR_eNeK.eBjSZFlXXaywXXa_!!1876943437.png" alt=""></p>
+<p><code>scale-down</code> 由于具有动态特性，所以要专门展示下。实际的替换内容表现是 <code>none</code> 和 <code>contain</code> 最终尺寸小的那个属性值的表现。<br>例如，假设我们的容器可以resize拉伸，改变其尺寸，则当容器尺寸比400*400小的时候，也就是容器比替换内容（这里的图片）实际尺寸小的时候，效果跟contain一致，因为此时contain的实际展示尺寸比none小。如下所示：</p>
+<p><img src="https://img.alicdn.com/imgextra/i1/1876943437/TB2Ll7FdM9J.eBjSsppXXXAAVXa_!!1876943437.png" alt="mahua"></p>
+<p>但是，当容器尺寸拉伸到比图片实际尺寸还大的时候，则效果跟none一致，因为此时none的实际展示尺寸比contain小。如下所示：</p>
+<p><img src="https://img.alicdn.com/imgextra/i3/1876943437/TB2fcIJdH5K.eBjy0FnXXaZzVXa_!!1876943437.png" alt=""></p>
+<ul>
+<li>fill: 中文释义“填充”。默认值。替换内容拉伸填满整个content box, 不保证保持原有的比例。</li>
+<li>contain: 中文释义“包含”。保持原有尺寸比例。保证替换内容尺寸一定可以在容器里面放得下。因此，此参数可能会在容器内留下空白。</li>
+<li>cover: 中文释义“覆盖”。保持原有尺寸比例。保证替换内容尺寸一定大于容器尺寸，宽度和高度至少有一个和容器一致。因此，此参数可能会让替换内容（如图片）部分区域不可见。</li>
+<li>none: 中文释义“无”。保持原有尺寸比例。同时保持替换内容原始尺寸大小。</li>
+<li>scale-down: 中文释义“降低”。就好像依次设置了none或contain, 最终呈现的是尺寸比较小的那个。</li>
+</ul>
+<p><img src="https://img.alicdn.com/imgextra/i3/1876943437/TB2V7SmemuJ.eBjy0FgXXXBBXXa_!!1876943437.png" alt=""></p>
+<hr>
+<h2 id="CSS-Shapes"><a href="#CSS-Shapes" class="headerlink" title="CSS Shapes"></a>CSS Shapes</h2><p>布局一般都是遵循按行和列等线性原则，Web网站的布局到今天为止很大程度上受到这些原则的影响。<br>虽然 <a href="https://css-tricks.com/snippets/css/complete-guide-grid/" target="_blank" rel="external">CSS Grid</a> 的出现让布局变得更好，更灵活，但相对于印刷媒体而言，Web布局总体上还是受到很好的限制，特别是内容流上。杂志和报纸一直有很好的办法来安排内容。比如文本绕着非矩形排列。</p>
+<p>CSS Shapes使网页设计师能更好的实现自己的创意，除了简单的长方形和正方形，还可以实现任何几何图形布局。改规范提供了两个新的CSS属性： <code>shape-outside</code> 和 <code>shape-margin</code> 。浏览器支持这些规范是有一定道理的，尽管这些属性目前仅可以在Chrome、Opera和Safari看到效果，而且还需要带上浏览器的私有属性 <code>-webkit</code> ,因此使用的是<code>-webkit-shape-outside</code> 和 <code>-webkit-shape-margin</code> 。</p>
+<p><img src="https://img.alicdn.com/imgextra/i4/1876943437/TB2djpjffOM.eBjSZFqXXculVXa_!!1876943437.jpg" alt=""></p>
+<h3 id="创建一个图形"><a href="#创建一个图形" class="headerlink" title="创建一个图形"></a>创建一个图形</h3><p>创建一个圆是CSS创建一个图形（不是矩形）最简单的。使用一个div来制作这个圆，并且在这个圆的边上放置几个段落p。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"circle"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>Lorem ipsum…<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>Lorem ipsum…<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>Lorem ipsum…<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>写一点基本样式，给<code>.circle</code> 元素设置一个相同的 <code>width</code> 和 <code>height</code> ，使用 <code>border-radius</code> 将 div 变成一个圆，并且设置一个 <code>float</code> ，让段落围着这个元素。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.circle</span> &#123; </div><div class="line">    <span class="attribute">width</span>: <span class="number">250px</span>;</div><div class="line">    <span class="attribute">height</span>: <span class="number">250px</span>;</div><div class="line">    <span class="attribute">background-color</span>: <span class="number">#40a977</span>;</div><div class="line">    <span class="attribute">border-radius</span>: <span class="number">50%</span>;</div><div class="line">    <span class="attribute">float</span>: left;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>除了段落现在围绕着该元素 <code>.circle</code> 之外，文本还是没有变成曲线绕着圆形。那是由于 <code>border-radius</code> 属性实际上并无法改变一个元素形状，它依旧是一个矩形。</p>
+<p>通过浏览器开发者工具（DevTools）的审查元素可以发现，事实上 <code>.circle</code> 仍然是一个盒子。即使这个 div 的外观看上去是一个圆，但实际上它没有元素看到的实际形状。</p>
+<p><img src="https://img.alicdn.com/imgextra/i4/1876943437/TB2ZJ8pfgCN.eBjSZFoXXXj0FXa_!!1876943437.jpg" alt=""></p>
+<p>为了让段落呈现成一个圆形，实际上我们就需要通过 <code>shape-outside</code> 属性改变元素的实际形状。在本例中，将给 <code>shape-outside</code> 设置一个 <code>circle()</code> 属性值。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.circle</span> &#123;</div><div class="line">    <span class="attribute">width</span>: <span class="number">250px</span>;</div><div class="line">    <span class="attribute">height</span>: <span class="number">250px</span>;</div><div class="line">    <span class="attribute">background-color</span>: <span class="number">#40a977</span>;</div><div class="line">    <span class="attribute">border-radius</span>: <span class="number">50%</span>;</div><div class="line">    <span class="attribute">float</span>: left;</div><div class="line">    <span class="attribute">-webkit-shape-outside</span>: <span class="built_in">circle</span>();</div><div class="line">    <span class="attribute">shape-outside</span>: <span class="built_in">circle</span>();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这个时候，再使用开发者工具审查元素，不难发现元素正确渲染成一个圆。</p>
+<p><img src="https://img.alicdn.com/imgextra/i2/1876943437/TB2HsJlfXOP.eBjSZFHXXXQnpXa_!!1876943437.jpg" alt=""></p>
+<h3 id="自定义圆"><a href="#自定义圆" class="headerlink" title="自定义圆"></a>自定义圆</h3><p><code>circle()</code> 函数可以定义圆的半径和圆心位置： <code>circle(r at x y)</code> 。默认情况，半径值来源于元素容器大小，如果元素宽度是 <code>300px</code> ，那么圆的半径就是其宽度的一半 <code>150px</code> 。</p>
+<p>同样，x和y坐标也是相对于元素尺寸。默认的坐标是 <code>50% 50%</code> ，也就是元素的正中间。</p>
+<p><img src="https://img.alicdn.com/imgextra/i2/1876943437/TB2WY5nehmJ.eBjy0FhXXbBdFXa_!!1876943437.jpg" alt=""></p>
+<p>当你想保持元素实际的大小，形状和位置，而又想调整形状，这两个值相当有用。以下面的示例中，将圆的半径调整为 <code>60px</code> ，圆心坐标调整为 <code>30% 70%</code> ,相当于把圆调整到元素的左下角。</p>
+<p><img src="https://img.alicdn.com/imgextra/i3/1876943437/TB2KfewemqJ.eBjy1zbXXbx8FXa_!!1876943437.jpg" alt=""></p>
+<p>写法上需要注意的是：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">circle( 60px at 30% 70% )  // 正确写法</div><div class="line">circle( 60px )  // 无效写法</div><div class="line">circle( at 30% 70% )  // 无效写法</div></pre></td></tr></table></figure></p>
+<h3 id="图形盒模型"><a href="#图形盒模型" class="headerlink" title="图形盒模型"></a>图形盒模型</h3><p>CSS Shapes继承了元素相同的盒模型，但应用元素以外的范围。比如说，允许我们把元素的 <code>border-box</code> 设置为 <code>padding-box</code> 。改变图形盒型只需要给shape-outside属性上添加盒模型的关键字：<code>content-box、margin-box、border-box</code> 或 <code>padding-box</code> 。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.circle</span> &#123;</div><div class="line">    <span class="attribute">width</span>: <span class="number">250px</span>;</div><div class="line">    <span class="attribute">height</span>: <span class="number">250px</span>;</div><div class="line">    <span class="attribute">background-color</span>: <span class="number">#40a977</span>;</div><div class="line">    <span class="attribute">border-radius</span>: <span class="number">50%</span>;</div><div class="line">    <span class="attribute">float</span>: left;</div><div class="line">    <span class="attribute">padding</span>: <span class="number">10px</span>;</div><div class="line">    <span class="attribute">border</span>: <span class="number">20px</span> solid <span class="number">#ccc</span>;</div><div class="line">    <span class="attribute">margin</span>: <span class="number">30px</span>;</div><div class="line">    <span class="attribute">-webkit-shape-outside</span>: <span class="built_in">circle</span>() padding-box;</div><div class="line">    <span class="attribute">shape-outside</span>: <span class="built_in">circle</span>() padding-box;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="https://img.alicdn.com/imgextra/i1/1876943437/TB2E7eheb1K.eBjSsphXXcJOXXa_!!1876943437.jpg" alt=""></p>
+<h3 id="椭圆-ellipse-函数"><a href="#椭圆-ellipse-函数" class="headerlink" title="椭圆:ellipse()函数"></a>椭圆:ellipse()函数</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.ellipse</span> &#123;</div><div class="line">  <span class="attribute">width</span>: <span class="number">100px</span>;</div><div class="line">  <span class="attribute">height</span>: <span class="number">200px</span>;</div><div class="line">  <span class="attribute">background-color</span>: <span class="number">#A4F4B0</span>;</div><div class="line">  <span class="attribute">border-radius</span>: <span class="number">50%</span>;</div><div class="line"></div><div class="line">  <span class="attribute">shape-outside</span>: <span class="built_in">ellipse</span>();</div><div class="line">  <span class="attribute">float</span>: left;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="https://img.alicdn.com/imgextra/i2/1876943437/TB22wqvehmI.eBjy0FlXXbgkVXa_!!1876943437.jpg" alt=""></p>
+<p>椭圆就像是一个圆坐下或者被压扁了而已。因此 <code>ellipse()</code> 函数的正式语法是:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ellipse( [&lt;shape-radius&gt;&#123;2&#125;]? [at &lt;position&gt;]? )</div></pre></td></tr></table></figure>
+<h3 id="矩形-inset-函数"><a href="#矩形-inset-函数" class="headerlink" title="矩形:inset()函数"></a>矩形:inset()函数</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.inset</span> &#123;</div><div class="line">  <span class="attribute">width</span>: <span class="number">200px</span>;</div><div class="line">  <span class="attribute">height</span>: <span class="number">160px</span>;</div><div class="line">  <span class="attribute">background-color</span>: <span class="number">#A4F4B0</span>;</div><div class="line">  <span class="attribute">border-radius</span>: <span class="number">50px</span>;</div><div class="line"></div><div class="line">  <span class="attribute">shape-outside</span>: <span class="built_in">inset</span>(0px round 50px);</div><div class="line">  <span class="attribute">float</span>: left;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="https://img.alicdn.com/imgextra/i4/1876943437/TB2w_xrfmiK.eBjSZFsXXbxZpXa_!!1876943437.jpg" alt=""></p>
+<p><code>shape-arg</code> 接受变量值，按照我们给 <code>margin</code> 或者 <code>padding</code> 的缩写的方式，以上、右、下、左的顺序，我们可以传入1个、2个或四个值。inset被应用到从元素边缘到中心。<br><code>inset()</code> 函数的正式的语法:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">inset( &lt;shape-arg&gt;&#123;1,4&#125; [round &lt;border-radius&gt;]? )</div></pre></td></tr></table></figure></p>
+<h3 id="多边形：plygon-函数"><a href="#多边形：plygon-函数" class="headerlink" title="多边形：plygon()函数"></a>多边形：plygon()函数</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.polygon</span> &#123;</div><div class="line">  <span class="attribute">width</span>: <span class="number">200px</span>;</div><div class="line">  <span class="attribute">height</span>: <span class="number">200px</span>;</div><div class="line">  <span class="attribute">clip-path</span>: <span class="built_in">polygon</span>(0 0, 0 200px, 200px 100px);</div><div class="line">  <span class="attribute">background-color</span>: <span class="number">#A4F4B0</span>;</div><div class="line"></div><div class="line">  <span class="attribute">shape-outside</span>: <span class="built_in">polygon</span>(0 0, 0 200px, 200px 100px);</div><div class="line">  <span class="attribute">float</span>:left;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="https://img.alicdn.com/imgextra/i2/1876943437/TB2.4amebaI.eBjSszdXXaB6XXa_!!1876943437.jpg" alt=""></p>
+<p><code>polygon()</code> 函数允许你通过使用坐标值对作为参数来声明自定的形状，正式的语法是:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">polygon( [&lt;fill-rule&gt;,]? [&lt;shape-arg&gt; &lt;shape-arg&gt;]# )</div></pre></td></tr></table></figure>
+<p>每对坐标都是你期望的形状的顶点，至少有三个点才有效。在示例代码中，使用 <a href="http://www.w3cplus.com/css3/creating-responsive-shapes-with-clip-path.html" target="_blank" rel="external">clip-path</a> 裁掉元素在多边形外的一部分来创建一个多边形，所有你可以看到文本很好的环绕在周围。</p>
+<p><img src="https://img.alicdn.com/imgextra/i2/1876943437/TB2_vVvfmmK.eBjSZPfXXce2pXa_!!1876943437.png" alt=""></p>
+<hr>
+<h2 id="选中连续的几个元素"><a href="#选中连续的几个元素" class="headerlink" title="选中连续的几个元素"></a>选中连续的几个元素</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">ol</span> <span class="selector-tag">li</span><span class="selector-pseudo">:nth-child(n+7)</span><span class="selector-pseudo">:nth-child(-n+14)</span> &#123;</div><div class="line">    <span class="attribute">background</span>: lightpink;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/** Or Safari Way **/</span></div><div class="line"></div><div class="line"><span class="selector-tag">ol</span> <span class="selector-tag">li</span><span class="selector-pseudo">:nth-child(-n+14)</span><span class="selector-pseudo">:nth-child(n+7)</span> &#123;</div><div class="line">    <span class="attribute">background</span>: lightpink;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<hr>
+<h2 id="css自定义属性（css变量）"><a href="#css自定义属性（css变量）" class="headerlink" title="css自定义属性（css变量）"></a>css自定义属性（css变量）</h2><ul>
+<li>为风格统一而使用颜色变量</li>
+<li>一致的组件属性（布局，定位等）</li>
+<li>避免代码冗余</li>
+<li>动态性，可以在运行时更改</li>
+<li>可以方便的从JS中读/写</li>
+<li>可继承，可组合，同时具有作用域</li>
+</ul>
+<h3 id="第一个CSS变量"><a href="#第一个CSS变量" class="headerlink" title="第一个CSS变量"></a>第一个CSS变量</h3><p>令人感到惊讶的是，你们可能已经了解或使用过一个CSS变量（可以看做是第一个）—— <code>currentColor</code>，它并不出名，但仍然可用，并且在所有浏览器工作。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="selector-pseudo">:root</span> &#123;</div><div class="line">    <span class="attribute">color</span>: red;</div><div class="line">&#125;</div><div class="line"><span class="selector-tag">div</span> &#123;</div><div class="line">    <span class="comment">/* border-color is red */</span></div><div class="line">    <span class="attribute">border</span>: <span class="number">1px</span> solid currentColor;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>###CSS变量语法</p>
+<h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><p>用这样的方式来声明一个变量：<code>--variable-name: variable-value</code> ;（变量名是大小写敏感的）。变量的值可以是颜色、字符串、多个值的组合等:</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="selector-pseudo">:root</span>&#123;</div><div class="line">    <span class="attribute">--main-color</span>: <span class="number">#4d4e53</span>;</div><div class="line">    <span class="attribute">--main-bg</span>: <span class="built_in">rgb</span>(255, 255, 255);</div><div class="line">    <span class="attribute">--logo-border-color</span>: rebeccapurple;</div><div class="line">    <span class="attribute">--header-height</span>: <span class="number">68px</span>;</div><div class="line">    <span class="attribute">--content-padding</span>: <span class="number">10px</span> <span class="number">20px</span>;</div><div class="line">    <span class="attribute">--base-line-height</span>: <span class="number">1.428571429</span>;</div><div class="line">    <span class="attribute">--transition-duration</span>: .<span class="number">35s</span>;</div><div class="line">    <span class="attribute">--external-link</span>: <span class="string">"external link"</span>;</div><div class="line">    <span class="attribute">--margin-top</span>: <span class="built_in">calc</span>(2vh + 20px);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>可能语法看起来有些丑陋，却是有原因的。比如不能使用像$var这样的变量语法，因为已经被其他的CSS预处理程序使用了。</p>
+<h4 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h4><p>以这样的方式来使用一个变量: <code>some-css-value: var(--variable-name [, declaration-value])</code> ;<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">p</span> &#123;</div><div class="line">    <span class="attribute">margin</span>: <span class="built_in">var</span>(--p-margin, 0 0 10px);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>如果<code>--p-margin</code>没有被指定，则使用值：<code>0 0 10px</code>。这样的设计在使用时非常灵活–你可以使用一些来自某个框架的变量（通常大部分变量定义在这里），同时当你想要移除它的时候，可以保持现有功能正常工作。</p>
+<h4 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h4><p>自定义属性遵循<a href="https://drafts.csswg.org/css-cascade-4/#cascade" target="_blank" rel="external">CSS级联规则</a></p>
+<p>使用<code>:root</code> 作用域来定义全局变量：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-pseudo">:root</span>&#123;</div><div class="line">    <span class="attribute">--global-var</span>: <span class="string">'global'</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>如果想让某个变量只在部分元素/组件下可见，只需要在特定的元素下定义该变量：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"block"</span>&gt;</span></div><div class="line">  My block is</div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"block__highlight"</span>&gt;</span>awesome<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.block</span> &#123;</div><div class="line">  <span class="attribute">--block-font-size</span>: <span class="number">1rem</span>;</div><div class="line">  <span class="attribute">font-size</span>: <span class="built_in">var</span>(--block-font-size);</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.block__highlight</span> &#123;</div><div class="line">  <span class="attribute">--block-highlight-font-size</span>: <span class="number">1.5rem</span>;</div><div class="line">  <span class="attribute">font-size</span>: <span class="built_in">var</span>(--block-highlight-font-size);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>媒体查询、伪类等同样也可以提供作用域：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">@<span class="keyword">media</span> screen and (min-width: <span class="number">1025px</span>) &#123;</div><div class="line">  <span class="selector-pseudo">:root</span> &#123;</div><div class="line">    <span class="attribute">--screen-category</span>: <span class="string">'desktop'</span>;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">body &#123;</div><div class="line">  --bg: #f00;</div><div class="line">  background-color: var(--bg);</div><div class="line">  transition: background-color 1s;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">body</span><span class="selector-pseudo">:hover</span> &#123;</div><div class="line">  <span class="attribute">--bg</span>: <span class="number">#ff0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="变量组合"><a href="#变量组合" class="headerlink" title="变量组合"></a>变量组合</h4><p>变量可以和其他变量组合使用，<code>--variable-name: var(--another-variable-name)</code> ;</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.block</span> &#123;</div><div class="line">    <span class="attribute">--block-text</span>: <span class="string">'This is my block'</span>;</div><div class="line">    <span class="attribute">--block-highlight-text</span>: <span class="built_in">var</span>(--block-text)<span class="string">' with highlight'</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.block</span><span class="selector-pseudo">:before</span> &#123;</div><div class="line">    <span class="attribute">content</span>: <span class="built_in">var</span>(--block-text);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.block__highlight</span><span class="selector-pseudo">:before</span> &#123;</div><div class="line">    <span class="attribute">content</span>: <span class="built_in">var</span>(--block-highlight-text); <span class="comment">/*This is my block with highlight*/</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>声明新变量的值不能直接由一个已定义的变量计算而来，但我们可以使用CSS calc()来代替:<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.block</span> &#123;</div><div class="line">    <span class="attribute">--block-font-size</span>: <span class="number">1rem</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.block__highlight</span> &#123;</div><div class="line">    <span class="comment">/* DOESN'T WORK */</span></div><div class="line">    <span class="attribute">--block-highlight-font-size</span>: <span class="built_in">var</span>(--block-font-size)*<span class="number">1.5</span>;</div><div class="line">    <span class="attribute">font-size</span>: <span class="built_in">var</span>(--block-highlight-font-size);</div><div class="line"></div><div class="line">    <span class="comment">/* WORKS */</span></div><div class="line">    <span class="attribute">font-size</span>: <span class="built_in">calc</span>(var(--block-font-size)*<span class="number">1.5</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h4 id="值的计算（calc-）"><a href="#值的计算（calc-）" class="headerlink" title="值的计算（calc()）"></a>值的计算（calc()）</h4><p>不能简单的这样使用变量：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/* 错误 */</span></div><div class="line"><span class="selector-tag">padding</span>: <span class="selector-tag">var</span>(<span class="selector-tag">--spacer</span>)<span class="selector-tag">px</span></div></pre></td></tr></table></figure></p>
+<p>但借助calc()即可以实现上面功能以及其他的计算<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">margin</span>: 0 0 <span class="selector-tag">calc</span>(<span class="selector-tag">var</span>(<span class="selector-tag">--base-line-height</span>, 0) * 1<span class="selector-tag">rem</span>);</div></pre></td></tr></table></figure></p>
+<h4 id="在JS中使用原生属性"><a href="#在JS中使用原生属性" class="headerlink" title="在JS中使用原生属性"></a>在JS中使用原生属性</h4><p>使用CSS样式声明接口,可以在JS中方便的读/写自定义属性( <code>getPropertyValue</code> ,  <code>setProperty</code> ):</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// READ</span></div><div class="line"><span class="keyword">const</span> rootStyles = getComputedStyle(<span class="built_in">document</span>.documentElement);</div><div class="line"><span class="keyword">const</span> varValue = rootStyles.getPropertyValue(<span class="string">'--screen-category'</span>).trim();</div><div class="line"></div><div class="line"><span class="comment">// WRITE</span></div><div class="line"><span class="built_in">document</span>.documentElement.style.setProperty(<span class="string">'--screen-category'</span>, value);</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// GET</span></div><div class="line">alert(</div><div class="line">    getComputedStyle(<span class="built_in">document</span>.documentElement).getPropertyValue(<span class="string">'--screen-category'</span>).trim();</div><div class="line">);</div><div class="line"></div><div class="line"><span class="comment">// SET</span></div><div class="line"><span class="built_in">document</span>.documentElement.style.setProperty(<span class="string">'--screen-category'</span>, <span class="string">'custom'</span>);</div><div class="line"></div><div class="line"><span class="comment">// or reassign from an another prop</span></div><div class="line"><span class="built_in">document</span>.documentElement.style.setProperty(</div><div class="line">    <span class="string">'--screen-category'</span>, <span class="string">'var(--default-screen-category, '</span>%DEFAULT VALUE IF VAR IS NOT SET%<span class="string">')'</span></div><div class="line">);</div></pre></td></tr></table></figure>
+<h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><p><a href="https://blog.hospodarets.com/demos/css-custom-props-theme-switcher/" target="_blank" rel="external">Theme switcher…</a></p>
+<p><a href="https://blog.hospodarets.com/demos/css-colors-from-custom-props/" target="_blank" rel="external">Generate colors…</a></p>
+<p><img src="https://img.alicdn.com/imgextra/i3/1876943437/TB2yNVgaI2DjeFjSspnXXb20XXa_!!1876943437.png" alt=""></p>
+<hr>
+<h2 id="逐帧动画"><a href="#逐帧动画" class="headerlink" title="逐帧动画"></a>逐帧动画</h2><p>动画特效在Web的使用中越来越频繁，而且要求也越来越高，希望看到的效果是平滑细腻的。比如鼠标悬浮效果，希望描述一个运动的幻觉。而要做到这样的效果，我们就需要在一个元素上使用一系列的图片。比如Twitter上的点赞动画。</p>
+<p><img src="https://img.alicdn.com/imgextra/i1/1876943437/TB2SiejebeI.eBjSspkXXaXqVXa_!!1876943437.gif" alt=""></p>
+<p>类似于小人书，将其运用到Web动画中来是一样的道理，需要一张雪碧图，这图上放置了动画所效果对应的图片，当然，图片越多，效果越平滑细腻。常把这样的图称之为雪碧图。</p>
+<p><img src="https://img.alicdn.com/imgextra/i2/1876943437/TB2wk4qfiGO.eBjSZFjXXcU9FXa_!!1876943437.png" alt=""></p>
+<p>有图还不够，这里最主要的是使用 <code>animation-timing-function</code> 中的 <code>steps()</code> 功能。对于大多数timing function而言（比如 <code>cubic-bezier</code> ），过度的开始和结束都会很平滑。但是steps方法不同，它把过度切分成很多步。每一步的区别很明显。</p>
+<p><img src="https://img.alicdn.com/imgextra/i2/1876943437/TB2YRRDflaM.eBjSZFMXXcypVXa_!!1876943437.png" alt=""></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.fave</span> &#123; </div><div class="line">    <span class="attribute">width</span>: <span class="number">70px</span>;  </div><div class="line">    <span class="attribute">height</span>: <span class="number">70px</span>; </div><div class="line">    <span class="attribute">background-size</span>: <span class="number">50em</span> <span class="number">2em</span>; </div><div class="line">    <span class="attribute">background</span>: <span class="built_in">url</span>(images/fave.svg) no-repeat;  <span class="attribute">background-position</span>: <span class="number">0</span> <span class="number">0</span>; </div><div class="line">&#125; </div><div class="line"></div><div class="line"><span class="selector-class">.fave</span><span class="selector-pseudo">:hover</span> &#123; </div><div class="line">    <span class="attribute">background-position</span>: -<span class="number">50em</span> <span class="number">0</span>; </div><div class="line">    <span class="attribute">transition</span>: background <span class="number">1s</span> <span class="built_in">steps</span>(55);  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>驱动背景图片精灵生成动画只是steps的一种使用方法。任何使用一些列特定步骤的动画都可以用steps生成，比如做一个时钟。</p>
+<p>使用CSS的Sprites图配合 <code>animation-timing-function</code> 或者 <code>transition-timing-function</code> 的 <code>steps()</code> 做的动画起来越多，效果越来越复杂。我们也常将这样的效果运用到自己的实际业务当中。</p>
+<p>比如 <a href="http://www.w3cplus.com/animation/dragon-dance-opening-animation.html" target="_blank" rel="external">手淘年货节舞龙</a> 动画。</p>
+<p><img src="https://img.alicdn.com/imgextra/i2/1876943437/TB2Qiaxeb1K.eBjSszbXXcTHpXa_!!1876943437.gif" alt=""></p>
+<h4 id="本文部分内容参考、整理于以下网站博文"><a href="#本文部分内容参考、整理于以下网站博文" class="headerlink" title="本文部分内容参考、整理于以下网站博文:"></a>本文部分内容参考、整理于以下网站博文:</h4><p>w3cplus：<a href="http://www.w3cplus.com/" target="_blank" rel="external">http://www.w3cplus.com/</a></p>
+<p>zhangxinxu: <a href="http://www.zhangxinxu.com/" target="_blank" rel="external">http://www.zhangxinxu.com/</a></p>
+<p>smashing：<a href="https://www.smashingmagazine.com/2016/03/dirty-tricks-dark-corners-front-end-slides-pdf/" target="_blank" rel="external">https://www.smashingmagazine.com/2016/03/dirty-tricks-dark-corners-front-end-slides-pdf/</a></p>
+<p>hackernoon：<a href="https://hackernoon.com/how-it-feels-to-learn-javascript-in-2016-d3a717dd577f#.gpz7sj5ny" target="_blank" rel="external">https://hackernoon.com/how-it-feels-to-learn-javascript-in-2016-d3a717dd577f#.gpz7sj5ny</a></p>
+<h4 id="周会PPT地址"><a href="#周会PPT地址" class="headerlink" title="周会PPT地址:"></a>周会PPT地址:</h4><p><a href="https://pan.baidu.com/s/1nvNgIQP" target="_blank" rel="external">https://pan.baidu.com/s/1nvNgIQP</a></p>
+
+            <div class="clearfix"></div>
+            <hr class="nogutter">
+        </div>
+        <nav class="pagination" role="pagination">
+    
+    
+    <a class="pull-right" href="/Weekly-SmartAdmin/">
+        周会分享- SmartAdmin →
+    </a>
+    
+</nav>
+
+        <div class="duoshuo">
+<div class="ds-thread" data-thread-key="Weekly-FrontEndDirty/" data-title="周会分享- 前端黑魔法" data-url="http://yoursite.com/Weekly-FrontEndDirty/"></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"duoshuo_name"};
+(function() {
+	var ds = document.createElement('script');
+	ds.type = 'text/javascript';ds.async = true;
+	ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+	ds.charset = 'UTF-8';
+	(document.getElementsByTagName('head')[0] 
+	 || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script>
+</div>
+    </div>
+</section>
+
+
+      
+<!-- ============================ Footer =========================== -->
+
+<footer>
+    <div class="container">
+            <div class="copy">
+                <p>
+                    &copy; 2014<script>new Date().getFullYear()>2010&&document.write("-"+new Date().getFullYear());</script>, Content By YangQiwang. All Rights Reserved.
+                </p>
+            </div>
+            <div class="social">
+                <ul>
+                    
+                    <li><a href="https://github.com/oo10" title="Github" target="_blank"><i class="icon-github"></i></a>&nbsp;</li>
+                    
+                    
+                    
+                    
+                    
+                    <li><a href="http://weibo.com/272130055" title="Sina-Weibo" target="_blank"><i class="icon-sina-weibo"></i></a>&nbsp;</li>
+                    
+                </ul>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+</footer>
+
+<!-- ============================ END Footer =========================== -->
+      <!-- Load our scripts -->
+<!-- Resizable 'on-demand' full-height hero -->
+<script type="text/javascript">
+    var resizeHero = function () {
+        var hero = $(".cover,.heightblock"),
+            window1 = $(window);
+        hero.css({
+            "height": window1.height()
+        });
+    };
+
+    resizeHero();
+
+    $(window).resize(function () {
+        resizeHero();
+    });
+</script>
+<script src="/js/plugins.min.js"></script><!-- Bootstrap core and concatenated plugins always load here -->
+<script src="/js/jquery.flexslider-min.js"></script><!-- Flexslider plugin -->
+<script src="/js/scripts.js"></script><!-- Theme scripts -->
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$('#intro').find('img').each(function(){
+  var alt = this.alt;
+
+  if (alt){
+    $(this).after('<span class="caption" style="display:none">' + alt + '</span>');
+  }
+
+  $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox" rel="gallery" />');
+});
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+<!-- Initiate flexslider plugin -->
+<script type="text/javascript">
+    $(document).ready(function($) {
+      $('.flexslider').flexslider({
+        animation: "fade",
+        prevText: "",
+        nextText: "",
+        directionNav: true
+      });
+    });
+</script>
+
+</body>
+</html>

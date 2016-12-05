@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<!--[if lte IE 8 ]>
+<html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<!--<![endif]-->
+
+<head>
+  <title>周会分享- SmartAdmin | YangQiwang&#39;s blog</title>
+  <!-- Meta data -->
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content="YangQiwang's blog">
+    <meta name="author" content="YangQiwang">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+
+    <!-- Favicon, (keep icon in root folder) -->
+    <link rel="Shortcut Icon" href="/img/favicon.ico" type="image/ico">
+
+    <link rel="alternate" href="/atom.xml" title="YangQiwang&#39;s blog" type="application/atom+xml">
+    <link rel="stylesheet" href="/css/all.css" media="screen" type="text/css">
+	
+    <link rel="stylesheet" href="/highlightjs/vs.css" type="text/css">
+    
+    
+
+    <!-- Custom stylesheet, (add custom styles here, always load last) -->
+    <!-- Load our stylesheet for IE8 -->
+    <!--[if IE 8]>
+    <link rel="stylesheet" type="text/css" href="/css/ie8.css" />
+    <![endif]-->
+
+    <!-- Google Webfonts (Monserrat 400/700, Open Sans 400/600) -->
+    <!--<link href='//fonts.useso.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>-->
+    <style>
+        @font-face {
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 400;
+            src: local('Montserrat-Regular'), url(http://fontstatic.useso.com/s/montserrat/v7/zhcz-_WihjSQC0oHJ9TCYBsxEYwM7FgeyaSgU71cLG0.woff) format('woff');
+        }
+
+        @font-face {
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 700;
+            src: local('Montserrat-Bold'), url(http://fontstatic.useso.com/s/montserrat/v7/IQHow_FEYlDC4Gzy_m8fcgFhaRv2pGgT5Kf0An0s4MM.woff) format('woff');
+        }
+    </style>
+    <!--<link href='//fonts.useso.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>-->
+    <style>
+        /* cyrillic-ext */
+        @font-face {
+            font-family: 'Open Sans';
+            font-style: normal;
+            font-weight: 400;
+            src: local('Open Sans'), local('OpenSans'), url(http://fontstatic.useso.com/s/opensans/v13/K88pR3goAWT7BTt32Z01mxJtnKITppOI_IvcXXDNrsc.woff2) format('woff2');
+            unicode-range: U+0460-052F, U+20B4, U+2DE0-2DFF, U+A640-A69F;
+        }
+        /* cyrillic */
+        @font-face {
+            font-family: 'Open Sans';
+            font-style: normal;
+            font-weight: 400;
+            src: local('Open Sans'), local('OpenSans'), url(http://fontstatic.useso.com/s/opensans/v13/RjgO7rYTmqiVp7vzi-Q5URJtnKITppOI_IvcXXDNrsc.woff2) format('woff2');
+            unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+        }
+        /* greek-ext */
+        @font-face {
+            font-family: 'Open Sans';
+            font-style: normal;
+            font-weight: 400;
+            src: local('Open Sans'), local('OpenSans'), url(http://fontstatic.useso.com/s/opensans/v13/LWCjsQkB6EMdfHrEVqA1KRJtnKITppOI_IvcXXDNrsc.woff2) format('woff2');
+            unicode-range: U+1F00-1FFF;
+        }
+        /* greek */
+        @font-face {
+            font-family: 'Open Sans';
+            font-style: normal;
+            font-weight: 400;
+            src: local('Open Sans'), local('OpenSans'), url(http://fontstatic.useso.com/s/opensans/v13/xozscpT2726on7jbcb_pAhJtnKITppOI_IvcXXDNrsc.woff2) format('woff2');
+            unicode-range: U+0370-03FF;
+        }
+        /* vietnamese */
+        @font-face {
+            font-family: 'Open Sans';
+            font-style: normal;
+            font-weight: 400;
+            src: local('Open Sans'), local('OpenSans'), url(http://fontstatic.useso.com/s/opensans/v13/59ZRklaO5bWGqF5A9baEERJtnKITppOI_IvcXXDNrsc.woff2) format('woff2');
+            unicode-range: U+0102-0103, U+1EA0-1EF9, U+20AB;
+        }
+        /* latin-ext */
+        @font-face {
+            font-family: 'Open Sans';
+            font-style: normal;
+            font-weight: 400;
+            src: local('Open Sans'), local('OpenSans'), url(http://fontstatic.useso.com/s/opensans/v13/u-WUoqrET9fUeobQW7jkRRJtnKITppOI_IvcXXDNrsc.woff2) format('woff2');
+            unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+        }
+        /* latin */
+        @font-face {
+            font-family: 'Open Sans';
+            font-style: normal;
+            font-weight: 400;
+            src: local('Open Sans'), local('OpenSans'), url(http://fontstatic.useso.com/s/opensans/v13/cJZKeOuBrn4kERxqtaUH3VtXRa8TVwTICgirnJhmVJw.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+        }
+        /* cyrillic-ext */
+        @font-face {
+            font-family: 'Open Sans';
+            font-style: normal;
+            font-weight: 600;
+            src: local('Open Sans Semibold'), local('OpenSans-Semibold'), url(http://fontstatic.useso.com/s/opensans/v13/MTP_ySUJH_bn48VBG8sNSq-j2U0lmluP9RWlSytm3ho.woff2) format('woff2');
+            unicode-range: U+0460-052F, U+20B4, U+2DE0-2DFF, U+A640-A69F;
+        }
+        /* cyrillic */
+        @font-face {
+            font-family: 'Open Sans';
+            font-style: normal;
+            font-weight: 600;
+            src: local('Open Sans Semibold'), local('OpenSans-Semibold'), url(http://fontstatic.useso.com/s/opensans/v13/MTP_ySUJH_bn48VBG8sNSpX5f-9o1vgP2EXwfjgl7AY.woff2) format('woff2');
+            unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+        }
+        /* greek-ext */
+        @font-face {
+            font-family: 'Open Sans';
+            font-style: normal;
+            font-weight: 600;
+            src: local('Open Sans Semibold'), local('OpenSans-Semibold'), url(http://fontstatic.useso.com/s/opensans/v13/MTP_ySUJH_bn48VBG8sNShWV49_lSm1NYrwo-zkhivY.woff2) format('woff2');
+            unicode-range: U+1F00-1FFF;
+        }
+        /* greek */
+        @font-face {
+            font-family: 'Open Sans';
+            font-style: normal;
+            font-weight: 600;
+            src: local('Open Sans Semibold'), local('OpenSans-Semibold'), url(http://fontstatic.useso.com/s/opensans/v13/MTP_ySUJH_bn48VBG8sNSqaRobkAwv3vxw3jMhVENGA.woff2) format('woff2');
+            unicode-range: U+0370-03FF;
+        }
+        /* vietnamese */
+        @font-face {
+            font-family: 'Open Sans';
+            font-style: normal;
+            font-weight: 600;
+            src: local('Open Sans Semibold'), local('OpenSans-Semibold'), url(http://fontstatic.useso.com/s/opensans/v13/MTP_ySUJH_bn48VBG8sNSv8zf_FOSsgRmwsS7Aa9k2w.woff2) format('woff2');
+            unicode-range: U+0102-0103, U+1EA0-1EF9, U+20AB;
+        }
+        /* latin-ext */
+        @font-face {
+            font-family: 'Open Sans';
+            font-style: normal;
+            font-weight: 600;
+            src: local('Open Sans Semibold'), local('OpenSans-Semibold'), url(http://fontstatic.useso.com/s/opensans/v13/MTP_ySUJH_bn48VBG8sNSj0LW-43aMEzIO6XUTLjad8.woff2) format('woff2');
+            unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+        }
+        /* latin */
+        @font-face {
+            font-family: 'Open Sans';
+            font-style: normal;
+            font-weight: 600;
+            src: local('Open Sans Semibold'), local('OpenSans-Semibold'), url(http://fontstatic.useso.com/s/opensans/v13/MTP_ySUJH_bn48VBG8sNSugdm0LZdjqr5-oayXSOefg.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+        }
+    </style>
+    <!-- Load our fonts individually if IE8+, to avoid faux bold & italic rendering -->
+    <!--[if IE]>
+    <!--<link href='http://fonts.useso.com/css?family=Montserrat:400' rel='stylesheet' type='text/css'>-->
+    <style>
+        /* latin */
+        @font-face {
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 400;
+            src: local('Montserrat-Regular'), url(http://fontstatic.useso.com/s/montserrat/v7/zhcz-_WihjSQC0oHJ9TCYPk_vArhqVIZ0nv9q090hN8.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+        }
+    </style>
+    <!--<link href='http://fonts.useso.com/css?family=Montserrat:700' rel='stylesheet' type='text/css'>-->
+    <style>
+        /* latin */
+        @font-face {
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 400;
+            src: local('Montserrat-Regular'), url(http://fontstatic.useso.com/s/montserrat/v7/zhcz-_WihjSQC0oHJ9TCYPk_vArhqVIZ0nv9q090hN8.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+        }
+        /* latin */
+        @font-face {
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 400;
+            src: local('Montserrat-Regular'), url(http://fontstatic.useso.com/s/montserrat/v7/zhcz-_WihjSQC0oHJ9TCYPk_vArhqVIZ0nv9q090hN8.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+        }
+    </style>
+    <!--<link href='http://fonts.useso.com/css?family=Open+Sans:400' rel='stylesheet' type='text/css'>-->
+    <style>
+        /* cyrillic-ext */
+        @font-face {
+            font-family: 'Open Sans';
+            font-style: normal;
+            font-weight: 400;
+            src: local('Open Sans'), local('OpenSans'), url(http://fontstatic.useso.com/s/opensans/v13/K88pR3goAWT7BTt32Z01mxJtnKITppOI_IvcXXDNrsc.woff2) format('woff2');
+            unicode-range: U+0460-052F, U+20B4, U+2DE0-2DFF, U+A640-A69F;
+        }
+        /* cyrillic */
+        @font-face {
+            font-family: 'Open Sans';
+            font-style: normal;
+            font-weight: 400;
+            src: local('Open Sans'), local('OpenSans'), url(http://fontstatic.useso.com/s/opensans/v13/RjgO7rYTmqiVp7vzi-Q5URJtnKITppOI_IvcXXDNrsc.woff2) format('woff2');
+            unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+        }
+        /* greek-ext */
+        @font-face {
+            font-family: 'Open Sans';
+            font-style: normal;
+            font-weight: 400;
+            src: local('Open Sans'), local('OpenSans'), url(http://fontstatic.useso.com/s/opensans/v13/LWCjsQkB6EMdfHrEVqA1KRJtnKITppOI_IvcXXDNrsc.woff2) format('woff2');
+            unicode-range: U+1F00-1FFF;
+        }
+        /* greek */
+        @font-face {
+            font-family: 'Open Sans';
+            font-style: normal;
+            font-weight: 400;
+            src: local('Open Sans'), local('OpenSans'), url(http://fontstatic.useso.com/s/opensans/v13/xozscpT2726on7jbcb_pAhJtnKITppOI_IvcXXDNrsc.woff2) format('woff2');
+            unicode-range: U+0370-03FF;
+        }
+        /* vietnamese */
+        @font-face {
+            font-family: 'Open Sans';
+            font-style: normal;
+            font-weight: 400;
+            src: local('Open Sans'), local('OpenSans'), url(http://fontstatic.useso.com/s/opensans/v13/59ZRklaO5bWGqF5A9baEERJtnKITppOI_IvcXXDNrsc.woff2) format('woff2');
+            unicode-range: U+0102-0103, U+1EA0-1EF9, U+20AB;
+        }
+        /* latin-ext */
+        @font-face {
+            font-family: 'Open Sans';
+            font-style: normal;
+            font-weight: 400;
+            src: local('Open Sans'), local('OpenSans'), url(http://fontstatic.useso.com/s/opensans/v13/u-WUoqrET9fUeobQW7jkRRJtnKITppOI_IvcXXDNrsc.woff2) format('woff2');
+            unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+        }
+        /* latin */
+        @font-face {
+            font-family: 'Open Sans';
+            font-style: normal;
+            font-weight: 400;
+            src: local('Open Sans'), local('OpenSans'), url(http://fontstatic.useso.com/s/opensans/v13/cJZKeOuBrn4kERxqtaUH3VtXRa8TVwTICgirnJhmVJw.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+        }
+    </style>
+    <!--<link href='http://fonts.useso.com/css?family=Open+Sans:600' rel='stylesheet' type='text/css'>-->
+    <style>
+        /* cyrillic-ext */
+        @font-face {
+            font-family: 'Open Sans';
+            font-style: normal;
+            font-weight: 600;
+            src: local('Open Sans Semibold'), local('OpenSans-Semibold'), url(http://fontstatic.useso.com/s/opensans/v13/MTP_ySUJH_bn48VBG8sNSq-j2U0lmluP9RWlSytm3ho.woff2) format('woff2');
+            unicode-range: U+0460-052F, U+20B4, U+2DE0-2DFF, U+A640-A69F;
+        }
+        /* cyrillic */
+        @font-face {
+            font-family: 'Open Sans';
+            font-style: normal;
+            font-weight: 600;
+            src: local('Open Sans Semibold'), local('OpenSans-Semibold'), url(http://fontstatic.useso.com/s/opensans/v13/MTP_ySUJH_bn48VBG8sNSpX5f-9o1vgP2EXwfjgl7AY.woff2) format('woff2');
+            unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+        }
+        /* greek-ext */
+        @font-face {
+            font-family: 'Open Sans';
+            font-style: normal;
+            font-weight: 600;
+            src: local('Open Sans Semibold'), local('OpenSans-Semibold'), url(http://fontstatic.useso.com/s/opensans/v13/MTP_ySUJH_bn48VBG8sNShWV49_lSm1NYrwo-zkhivY.woff2) format('woff2');
+            unicode-range: U+1F00-1FFF;
+        }
+        /* greek */
+        @font-face {
+            font-family: 'Open Sans';
+            font-style: normal;
+            font-weight: 600;
+            src: local('Open Sans Semibold'), local('OpenSans-Semibold'), url(http://fontstatic.useso.com/s/opensans/v13/MTP_ySUJH_bn48VBG8sNSqaRobkAwv3vxw3jMhVENGA.woff2) format('woff2');
+            unicode-range: U+0370-03FF;
+        }
+        /* vietnamese */
+        @font-face {
+            font-family: 'Open Sans';
+            font-style: normal;
+            font-weight: 600;
+            src: local('Open Sans Semibold'), local('OpenSans-Semibold'), url(http://fontstatic.useso.com/s/opensans/v13/MTP_ySUJH_bn48VBG8sNSv8zf_FOSsgRmwsS7Aa9k2w.woff2) format('woff2');
+            unicode-range: U+0102-0103, U+1EA0-1EF9, U+20AB;
+        }
+        /* latin-ext */
+        @font-face {
+            font-family: 'Open Sans';
+            font-style: normal;
+            font-weight: 600;
+            src: local('Open Sans Semibold'), local('OpenSans-Semibold'), url(http://fontstatic.useso.com/s/opensans/v13/MTP_ySUJH_bn48VBG8sNSj0LW-43aMEzIO6XUTLjad8.woff2) format('woff2');
+            unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+        }
+        /* latin */
+        @font-face {
+            font-family: 'Open Sans';
+            font-style: normal;
+            font-weight: 600;
+            src: local('Open Sans Semibold'), local('OpenSans-Semibold'), url(http://fontstatic.useso.com/s/opensans/v13/MTP_ySUJH_bn48VBG8sNSugdm0LZdjqr5-oayXSOefg.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+        }
+    </style>
+    <![endif]-->
+
+    <!-- jQuery | Load our jQuery, with an alternative source fallback to a local version if request is unavailable -->
+    <script src="/js/jquery-1.11.1.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery-1.11.1.min.js"><\/script>')</script>
+
+    <!-- Load these in the <head> for quicker IE8+ load times -->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="/js/html5shiv.min.js"></script>
+    <script src="/js/respond.min.js"></script>
+    <![endif]-->
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+
+  
+  <style>.col-md-8.col-md-offset-2.opening-statement img{display:none;}</style>
+</head>
+
+<!--
+<body class="post-template">
+-->
+<body id="index" class="lightnav animsition">
+
+      <!-- ============================ Off-canvas navigation =========================== -->
+
+    <div class="sb-slidebar sb-right sb-style-overlay sb-momentum-scrolling">
+        <div class="sb-close" aria-label="Close Menu" aria-hidden="true">
+            <img src="/img/close.png" alt="Close"/>
+        </div>
+        <!-- Lists in Slidebars -->
+        <ul class="sb-menu">
+            <li><a href="/" class="animsition-link" title="Home">Home</a></li>
+            <li><a href="/archives" class="animsition-link" title="archive">archives</a></li>
+            <!-- Dropdown Menu -->
+			 
+            <li>
+                <a class="sb-toggle-submenu">Works<span class="sb-caret"></span></a>
+                <ul class="sb-submenu">
+                    
+                        <li><a href="/" target="_BLANK" class="animsition-link">AAA</a></li>
+                    
+                        <li><a href="/atom.xml" target="_BLANK" class="animsition-link">BBB</a></li>
+                    
+                </ul>
+            </li>
+            
+            
+        	<li>
+        		<a class="sb-toggle-submenu">Categories<span class="sb-caret"></span></a>
+            	<ul class="sb-submenu">
+				  	
+				    <li><a href="/categories/Ajax/" class="animsition-link">Ajax<small>(1)</small></a></li>
+				    
+				    <li><a href="/categories/Chrome/" class="animsition-link">Chrome<small>(1)</small></a></li>
+				    
+				    <li><a href="/categories/HTML/" class="animsition-link">HTML<small>(6)</small></a></li>
+				    
+				    <li><a href="/categories/Hexo/" class="animsition-link">Hexo<small>(5)</small></a></li>
+				    
+				    <li><a href="/categories/Skill/" class="animsition-link">Skill<small>(1)</small></a></li>
+				    
+				    <li><a href="/categories/Tool/" class="animsition-link">Tool<small>(3)</small></a></li>
+				    
+				    <li><a href="/categories/WebFront/" class="animsition-link">WebFront<small>(1)</small></a></li>
+				    
+				</ul>
+        	</li>
+			
+            
+            <li>
+                <a class="sb-toggle-submenu">Links<span class="sb-caret"></span></a>
+                <ul class="sb-submenu">
+                    
+                    <li><a href="http://go.kieran.top/" class="animsition-link">Kieran</a></li>
+                    
+                    <li><a href="http://domain.com/" class="animsition-link">Name</a></li>
+                    
+                </ul>
+            </li>
+            
+        </ul>
+        <!-- Lists in Slidebars -->
+        <ul class="sb-menu secondary">
+            <li><a href="/about.html" class="animsition-link" title="about">About</a></li>
+            <li><a href="/atom.xml" class="animsition-link" title="rss">RSS</a></li>
+        </ul>
+    </div>
+    
+    <!-- ============================ END Off-canvas navigation =========================== -->
+
+    <!-- ============================ #sb-site Main Page Wrapper =========================== -->
+
+    <div id="sb-site">
+        <!-- #sb-site - All page content should be contained within this id, except the off-canvas navigation itself -->
+
+        <!-- ============================ Header & Logo bar =========================== -->
+
+        <div id="navigation" class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <!-- Nav logo -->
+                    <div class="logo">
+                        <a href="/" title="Logo" class="animsition-link">
+                         <img src="/img/logo.png" alt="Logo" width="35px;"/> 
+                        </a>
+                    </div>
+                    <!-- // Nav logo -->
+                    <!-- Info-bar -->
+                    <nav>
+                        <ul class="nav">
+                            <li><a href="/" class="animsition-link">YangQiwang's blog</a></li>
+                            <li class="nolink"><span>Always </span>Creative.</li>
+                            
+                            <li><a href="https://github.com/oo10" title="Github" target="_blank"><i class="icon-github"></i></a></li>
+                            
+                            
+                            
+                            
+                            
+                            <li><a href="http://weibo.com/272130055" title="Sina-Weibo" target="_blank"><i class="icon-sina-weibo"></i></a></li>
+                            
+                            <li class="nolink"><span>Welcome!</span></li>
+                        </ul>
+                    </nav>
+                    <!--// Info-bar -->
+                </div>
+                <!-- // .container -->
+                <div class="learnmore sb-toggle-right">More</div>
+                <button type="button" class="navbar-toggle menu-icon sb-toggle-right" title="More">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar before"></span>
+                <span class="icon-bar main"></span>
+                <span class="icon-bar after"></span>
+                </button>
+            </div>
+            <!-- // .navbar-inner -->
+        </div>
+
+        <!-- ============================ Header & Logo bar =========================== -->
+
+
+      
+<section id="intro">
+    <div class="container">
+        <div class="row col-md-offset-2">
+            <div class="col-md-8">
+    			<span class="post-meta">
+      <time datetime="2016-08-14T16:00:00.000Z" itemprop="datePublished">
+          2016-08-15
+      </time>
+    
+    
+    | 
+    <a href='/tags/周会分享/'>周会分享</a>
+    
+    
+</span>
+                <h1>周会分享- SmartAdmin</h1>
+            </div>
+        </div>
+        <div class="col-md-8 col-md-offset-2">
+      		<p>　　** 实习期间周会分享内容，Bootstrap3后台管理系统模板 - SmartAdmin的简单介绍</p>
+<a id="more"></a>
+<h1 id="SmartAdmin"><a href="#SmartAdmin" class="headerlink" title="SmartAdmin"></a>SmartAdmin</h1><hr>
+<h2 id="一、简介"><a href="#一、简介" class="headerlink" title="一、简介"></a>一、简介</h2><p>SmartAdmin 是基于<a href="http://getbootstrap.com/" target="_blank" rel="external"> Bootstrap </a>技术和各种 JS 插件（40多种）所创建的 UI<br>    组件库，具有独特的平面设计和响应式布局，布局的页面不仅适用于桌面设备，而且也能很好的自适应手机和平板设备。SmartAdmin 有 HTML 、 AJAX 、 PHP 和 AngularJS 四种版本。</p>
+<p><img src="http://obzg8bbu1.bkt.clouddn.com/%E5%9B%BE%E7%89%871.png" alt=""></p>
+<hr>
+<h2 id="二、特点"><a href="#二、特点" class="headerlink" title="二、特点"></a>二、特点</h2><ul>
+<li>兼容最新的 Chrome 、Firefox 、Opera 、Safari 和 IE9（包括 IE9 ）以上版本浏览器。</li>
+<li>大量使用了能兼容各浏览器的 HTML5 标签。</li>
+<li>兼容各种分辨率的移动、平板和桌面设备。</li>
+<li>有四种技术版本，分别是 HTML 、 AJAX 、 PHP 和 AngularJS 版本。1.5版本增加了 .NET MVC 版本。</li>
+<li>轻量级页面（可以通过 ajax 技术加载页面）。</li>
+<li>1.5 版本默认有6种主题皮肤。</li>
+<li>导航菜单有两种展现方式：1.4.2 版本具有顶部菜单和左侧菜单两种菜单样式，1.5版本增加了右侧菜单样式。</li>
+<li>左侧导航菜单最高可制作6级菜单。</li>
+<li>可以创建面包屑导航。</li>
+<li>可以折叠、最小化导航菜单（ hover 时出现），对于屏幕尺寸较小的移动设备，导航菜单可以灵活调整。</li>
+<li>组件强大到让你无法相信。</li>
+<li>自定义树视图。</li>
+</ul>
+<hr>
+<h2 id="三、结构"><a href="#三、结构" class="headerlink" title="三、结构"></a>三、结构</h2><h3 id="一-文件目录结构"><a href="#一-文件目录结构" class="headerlink" title="(一)文件目录结构"></a>(一)文件目录结构</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div></pre></td><td class="code"><pre><div class="line">以AJAX版本为例</div><div class="line"></div><div class="line">&lt;AJAX_version&gt;</div><div class="line"></div><div class="line">├login.html</div><div class="line">├index.html</div><div class="line">├forgotpassword.html</div><div class="line">├lock.html</div><div class="line">├register.html</div><div class="line">├&lt;ajax&gt;</div><div class="line">│  ├blank_.html</div><div class="line">│  ├bootstrap-forms.html</div><div class="line">│  ├buttons.html</div><div class="line">│  ├calendar.html</div><div class="line">│  ├ckeditor.html</div><div class="line">│  ├dashboard.html</div><div class="line">│  ├datatables.html</div><div class="line">│  ├demowidget.php</div><div class="line">│  ├dropzone.html</div><div class="line">│  ├email-compose.html</div><div class="line">│  ├email-opened.html</div><div class="line">│  ├email-reply.html</div><div class="line">│  ├email-template.html</div><div class="line">│  ├error404.html</div><div class="line">│  ├error500.html</div><div class="line">│  ├fa.html</div><div class="line">│  ├flot.html</div><div class="line">│  ├form-elements.html</div><div class="line">│  ├form-templates.html</div><div class="line">│  ├forum.html</div><div class="line">│  ├forum-post.html</div><div class="line">│  ├forum-topic.html</div><div class="line">│  ├gallery.html</div><div class="line">│  ├general-elements.html</div><div class="line">│  ├glyph.html</div><div class="line">│  ├gmap-xml.html</div><div class="line">│  ├grid.html</div><div class="line">│  ├home.html</div><div class="line">│  ├inbox.html</div><div class="line">│  ├inline-charts.html</div><div class="line">│  ├invoice.html</div><div class="line">│  ├jqui.html</div><div class="line">│  ├morris.html</div><div class="line">│  ├nestable-list.html</div><div class="line">│  ├other-editors.html</div><div class="line">│  ├plugins.html</div><div class="line">│  ├pricing-table.html</div><div class="line">│  ├profile.html</div><div class="line">│  ├search.html</div><div class="line">│  ├table.html</div><div class="line">│  ├timeline.html</div><div class="line">│  ├treeview.html</div><div class="line">│  ├typography.html</div><div class="line">│  ├validation.html</div><div class="line">│  ├website-template.html</div><div class="line">│  ├widgets.html</div><div class="line">│  ├wizard.html</div><div class="line">│  ├&lt;email&gt;</div><div class="line">│  │  └email-list.html</div><div class="line">│  ├&lt;notify&gt;</div><div class="line">│  │  ├mail.html</div><div class="line">│  │  ├notifications.html</div><div class="line">│  │  └tasks.html</div><div class="line">├&lt;css&gt;</div><div class="line">│  ├bootstrap.css</div><div class="line">│  ├bootstrap.css.map</div><div class="line">│  ├bootstrap.min.css</div><div class="line">│  ├demo.css</div><div class="line">│  ├font-awesome.min.css</div><div class="line">│  ├invoice.css</div><div class="line">│  ├lockscreen.css</div><div class="line">│  ├smartadmin-production.css</div><div class="line">│  ├smartadmin-production_unminified.css</div><div class="line">│  ├smartadmin-rtl.css</div><div class="line">│  ├smartadmin-skins.css</div><div class="line">│  └your_style.css</div><div class="line">├&lt;fonts&gt;</div><div class="line">│  ├FontAwesome.otf</div><div class="line">│  ├fontawesome-webfont.eot</div><div class="line">│  ├fontawesome-webfont.svg</div><div class="line">│  ├fontawesome-webfont.ttf</div><div class="line">│  ├fontawesome-webfont.woff</div><div class="line">│  ├glyphicons-halflings-regular.eot</div><div class="line">│  ├glyphicons-halflings-regular.svg</div><div class="line">│  ├glyphicons-halflings-regular.ttf</div><div class="line">│  └glyphicons-halflings-regular.woff</div><div class="line">├&lt;img&gt;</div><div class="line">│  ├......</div><div class="line">├&lt;js&gt;</div><div class="line">│  ├app.js</div><div class="line">│  ├demo.js</div><div class="line">│  ├&lt;bootstrap&gt;</div><div class="line">│  │  ├bootstrap.js</div><div class="line">│  │  └bootstrap.min.js</div><div class="line">│  ├&lt;libs&gt;</div><div class="line">│  │  ├jquery-2.0.2.min.js</div><div class="line">│  │  └jquery-ui-1.10.3.min.js</div><div class="line">│  ├&lt;notification&gt;</div><div class="line">│  │  ├SmartNotification.js</div><div class="line">│  │  └SmartNotification.min.js</div><div class="line">│  ├&lt;plugin&gt;</div><div class="line">│  │  ├&lt;bootstrap-progressbar&gt;</div><div class="line">│  │  ├&lt;bootstrap-slider&gt;</div><div class="line">│  │  ├&lt;bootstrap-tags&gt;</div><div class="line">│  │  ├&lt;bootstrap-timepicker&gt;</div><div class="line">│  │  ├&lt;bootstraptree&gt;</div><div class="line">│  │  ├&lt;bootstrap-wizard&gt;</div><div class="line">│  │  ├&lt;ckeditor&gt;</div><div class="line">│  │  ├&lt;colorpicker&gt;</div><div class="line">│  │  ├&lt;datatables&gt;</div><div class="line">│  │  ├&lt;delete-table-row&gt;</div><div class="line">│  │  ├&lt;dropzone&gt;</div><div class="line">│  │  ├&lt;easy-pie-chart&gt;</div><div class="line">│  │  ├&lt;fastclick&gt;</div><div class="line">│  │  ├&lt;flot&gt;</div><div class="line">│  │  ├&lt;fuelux&gt;</div><div class="line">│  │  ├&lt;fullcalendar&gt;</div><div class="line">│  │  ├&lt;ie-placeholder&gt;</div><div class="line">│  │  ├&lt;ion-slider&gt;</div><div class="line">│  │  ├&lt;jquery-form&gt;</div><div class="line">│  │  ├&lt;jquery-nestable&gt;</div><div class="line">│  │  ├&lt;jquery-touch&gt;</div><div class="line">│  │  ├&lt;jquery-validate&gt;</div><div class="line">│  │  ├&lt;js-migrate&gt;</div><div class="line">│  │  ├&lt;knob&gt;</div><div class="line">│  │  ├&lt;markdown&gt;</div><div class="line">│  │  ├&lt;masked-input&gt;</div><div class="line">│  │  ├&lt;maxlength&gt;</div><div class="line">│  │  ├&lt;morris&gt;</div><div class="line">│  │  ├&lt;msie-fix&gt;</div><div class="line">│  │  ├&lt;multiselect&gt;</div><div class="line">│  │  ├&lt;noUiSlider&gt;</div><div class="line">│  │  ├&lt;pace&gt;</div><div class="line">│  │  ├&lt;select2&gt;</div><div class="line">│  │  ├&lt;selectToUISlider&gt;</div><div class="line">│  │  ├&lt;sparkline&gt;</div><div class="line">│  │  ├&lt;summernote&gt;</div><div class="line">│  │  ├&lt;superbox&gt;</div><div class="line">│  │  ├&lt;throttle-denounce&gt;</div><div class="line">│  │  ├&lt;typeahead&gt;</div><div class="line">│  │  ├&lt;vectormap&gt;</div><div class="line">│  │  └&lt;x-editable&gt;</div><div class="line">│  ├&lt;smartwidgets&gt;</div><div class="line">│  │  ├jarvis.widget.js</div><div class="line">│  │  └jarvis.widget.min.js</div><div class="line">├&lt;php&gt;</div><div class="line">│  ├demo-comment.php</div><div class="line">│  ├demo-contacts.php</div><div class="line">│  └demo-register.php</div><div class="line">├&lt;sound&gt;</div><div class="line">│  ├bigbox.mp3</div><div class="line">│  ├bigbox.ogg</div><div class="line">│  ├messagebox.mp3</div><div class="line">│  ├messagebox.ogg</div><div class="line">│  ├smallbox.mp3</div><div class="line">│  └smallbox.ogg</div></pre></td></tr></table></figure>
+<h3 id="二-页面结构"><a href="#二-页面结构" class="headerlink" title="(二)页面结构"></a>(二)页面结构</h3><p><img src="http://obzg8bbu1.bkt.clouddn.com/%E5%9B%BE%E7%89%873.png" alt=""></p>
+<h3 id="三-代码结构"><a href="#三-代码结构" class="headerlink" title="(三)代码结构"></a>(三)代码结构</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html lang=&quot;zh-CN&quot;&gt;</div><div class="line"></div><div class="line">&lt;!--定义文档头部信息--&gt;</div><div class="line">&lt;head&gt;</div><div class="line">    [文档头部信息，包括文档标题、引用脚本、样式等内容。]</div><div class="line">&lt;/head&gt;</div><div class="line"></div><div class="line">&lt;body class=&quot;&quot;&gt;</div><div class="line"></div><div class="line">&lt;!--顶部页头信息--&gt;</div><div class="line">&lt;header id=&quot;header&quot;&gt;</div><div class="line"></div><div class="line">    [LOGO]</div><div class="line">    [AJAX下拉框]</div><div class="line">    [工程信息下拉框]</div><div class="line">    [语言选择、语音、搜索、退出、折叠菜单按钮]</div><div class="line"></div><div class="line">&lt;/header&gt;</div><div class="line"></div><div class="line">&lt;!--左侧导航菜单面板--&gt;</div><div class="line">&lt;aside id=&quot;left-panel&quot;&gt;</div><div class="line"></div><div class="line">    [用户信息，包括图片、用户名等内容]</div><div class="line"></div><div class="line">    &lt;!--导航菜单--&gt;</div><div class="line">    &lt;nav&gt;</div><div class="line">        &lt;ul&gt;</div><div class="line">            &lt;li class=&quot;&quot;&gt;[导航链接]&lt;/li&gt;</div><div class="line">            &lt;li class=&quot;&quot;&gt;[导航链接]&lt;/li&gt;</div><div class="line">        &lt;/ul&gt;</div><div class="line">    &lt;/nav&gt;</div><div class="line"></div><div class="line">&lt;/aside&gt;</div><div class="line"></div><div class="line">&lt;!--页面主要内容面板--&gt;</div><div class="line">&lt;div id=&quot;main&quot;&gt;</div><div class="line"></div><div class="line">    &lt;!-- 面包屑导航面板 --&gt;</div><div class="line">    &lt;div id=&quot;ribbon&quot;&gt;</div><div class="line">        [面包屑导航内容]</div><div class="line">    &lt;/div&gt;</div><div class="line"></div><div class="line">    &lt;!--主要内容--&gt;</div><div class="line">    &lt;div id=&quot;content&quot;&gt;</div><div class="line">        [主要内容]</div><div class="line">    &lt;/div&gt;</div><div class="line"></div><div class="line">&lt;/div&gt;</div><div class="line"></div><div class="line">&lt;!--点击用户名出现的快捷菜单链接--&gt;</div><div class="line">&lt;div id=&quot;shortcut&quot;&gt;</div><div class="line">    [快捷菜单内容]</div><div class="line">&lt;/div&gt;</div><div class="line"></div><div class="line">&lt;!--页脚信息--&gt;</div><div class="line">&lt;div class=&quot;page-footer&quot;&gt;</div><div class="line">    &lt;div class=&quot;row&quot;&gt;</div><div class="line">        &lt;div class=&quot;col-xs-12 col-sm-12 text-center&quot;&gt;</div><div class="line">            [页脚内容]</div><div class="line">        &lt;/div&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">&lt;/div&gt;</div><div class="line"></div><div class="line">[页面默认加载的js脚本内容]</div><div class="line"></div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<hr>
+<h2 id="四、栅格布局"><a href="#四、栅格布局" class="headerlink" title="四、栅格布局"></a>四、栅格布局</h2><p>以下摘抄于参考网站：<a href="http://v3.bootcss.com/css/#grid" target="_blank" rel="external">http://v3.bootcss.com/css/#grid</a></p>
+<h3 id="一-简介"><a href="#一-简介" class="headerlink" title="(一)简介"></a>(一)简介</h3><p>栅格系统用于通过一系列的行（row）与列（column）的组合来创建页面布局，你的内容就可以放入这些创建好的布局中。下面就介绍一下 Bootstrap 栅格系统的工作原理：</p>
+<ul>
+<li>“行（row）”必须包含在 <code>.container</code> （固定宽度）或 <code>.container-fluid</code> （100%宽度）中，以便为其赋予合适的排列（aligment）和内补（padding）。</li>
+<li>通过“行（row）”在水平方向创建一组“列（column）”。</li>
+<li>你的内容应当放置于“列（column）”内，并且，只有“列（column）”可以作为行（row）”的直接子元素。</li>
+<li>类似 <code>.row</code> 和 <code>.col-xs-4</code> 这种预定义的类，可以用来快速创建栅格布局。<a href="http://getbootstrap.com/" target="_blank" rel="external">Bootstrap</a> 源码中定义的 mixin也可以用来创建语义化的布局。</li>
+<li>通过为“列（column）”设置 <code>padding</code> 属性，从而创建列与列之间的间隔（gutter）。通过为 <code>.row</code> 元素设置负值 <code>margin</code>从而抵消掉为 <code>.container</code> 元素设置的 <code>padding</code>，也就间接为“行（row）”所包含的“列（column）”抵消掉了<code>padding</code>。</li>
+<li>The negative margin is why the examples below are outdented. It’s so that content within grid columns is linedup with non-grid content.</li>
+<li>默认一行（row）会被分成 12 列（column），如果分成 3 个相等的列（column），需要用 <code>.col-xs-4</code>。</li>
+<li>如果一“行（row）”中包含了的“列（column）”大于 12，多余的“列（column）”所在的元素将被作为一个整体另起一行排列。</li>
+<li>删格类适用于大于或等于屏幕分界点的屏幕， <code>.col-md-</code>的元素不仅影响中等尺寸的屏幕，也会影响大屏幕（如果该元素没有<code>.col-lg-</code>类。 ）</li>
+</ul>
+<h3 id="二-栅格参数"><a href="#二-栅格参数" class="headerlink" title="(二)栅格参数"></a>(二)栅格参数</h3><p><img src="http://obzg8bbu1.bkt.clouddn.com/%E5%9B%BE%E7%89%874.png" alt=""></p>
+<h3 id="三-布局容器"><a href="#三-布局容器" class="headerlink" title="(三)布局容器"></a>(三)布局容器</h3><p>Bootstrap 需要为页面内容和栅格系统包裹一个 .container 容器。我们提供了两个作此用处的类。注意，由于 padding 等属性的原因，这两种容器类不能互相嵌套。</p>
+<p>.container 类用于固定宽度并支持响应式布局的容器。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;container&quot;&gt;</div><div class="line">    ...</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<p>.container-fluid 类用于 100% 宽度，占据全部视口（viewport）的容器。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;container-fluid&quot;&gt;</div><div class="line">    ...</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<h3 id="四-例子"><a href="#四-例子" class="headerlink" title="(四)例子"></a>(四)例子</h3><p>使用单一的一组 <code>.col-md-*</code> 栅格类，就可以创建一个基本的栅格系统，在手机和平板设备上一开始是堆叠在一起的（超小屏幕到小屏幕这一范围），在桌面（中等）屏幕设备上变为水平排列。所有“列（column）必须放在 ” <code>.row</code> 内。</p>
+<p><img src="http://obzg8bbu1.bkt.clouddn.com/%E5%9B%BE%E7%89%875.png" alt=""></p>
+<p>使用 <code>.col-md-offset-*</code> 类可以将列向右侧偏移。这些类实际是通过使用 * 选择器为当前元素增加了左侧的边距（margin）。例如，<code>.col-md-offset-4</code> 类将 <code>.col-md-4</code> 元素向右侧偏移了4个列（column）的宽度。</p>
+<p><img src="http://obzg8bbu1.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20160816125337.png" alt=""></p>
+<p>为了使用内置的栅格系统将内容再次嵌套，可以通过添加一个新的 .row 元素和一系列 <code>.col-sm-*</code> 元素到已经存在的 <code>.col-sm-*</code> 元素内。被嵌套的行（row）所包含的列（column）的个数不能超过12（其实，没有要求必须占满12列）。</p>
+<hr>
+<h2 id="五、常用"><a href="#五、常用" class="headerlink" title="五、常用"></a>五、常用</h2><h3 id="一-data-属性"><a href="#一-data-属性" class="headerlink" title="(一)data-* 属性"></a>(一)data-* 属性</h3><ul>
+<li>用于存储页面或应用程序的私有自定义数据。</li>
+<li>赋予我们在所有 HTML 元素上嵌入自定义 data 属性的能力。</li>
+<li>存储的（自定义）数据能够被页面的 JavaScript 中利用，以创建更好的用户体验（不进行 Ajax 调用或服务器端数据库查询）。</li>
+</ul>
+<p>dataset属性存取data-*自定义属性的值<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div id=“user” data-id=“1234” data-name=“小白吗” data-date-of-birth&gt;小白&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">var el = document.querySelector(‘#user’);</div><div class="line">    console.log(el.id); // ‘user’</div><div class="line">    console.log(el.dataset);// 一个DOMStringMap</div><div class="line">    console.log(el.dataset.id); // ‘1234’</div><div class="line">    console.log(el.dataset.name); // ‘小白吗</div><div class="line">    console.log(el.dataset.dateOfBirth); // &apos;&apos;</div><div class="line">    el.dataset.dateOfBirth = &apos;1985-01-05&apos;; // 设置data-date-of-birth的值</div><div class="line">    console.log(&apos;someDataAttr&apos; in el.dataset);// false</div><div class="line">    el.dataset.someDataAttr = &apos;mydata&apos;;</div><div class="line">    console.log(&apos;someDataAttr&apos; in el.dataset);// true</div></pre></td></tr></table></figure>
+<p>JQ data()方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var myid= jQuery(“#user”).data(‘id’);</div><div class="line">console.log(myid); // ‘1234’</div></pre></td></tr></table></figure></p>
+<p>data-属性选择器<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">    // 使用 querySelectorAll 选择元素</div><div class="line">    // 选择所有包含 &apos;data-flowering&apos; 属性的元素</div><div class="line">    document . querySelectorAll ( &apos;[data-flowering]&apos; ) ;</div><div class="line">    // 选择所有包含 &apos;data-text-colour&apos; 属性值为red的元素</div><div class="line">    document . querySelectorAll ( &apos;[data-text-colour=&quot;red&quot;]&apos; ) ;</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;style type =“text/css”&gt;</div><div class="line">    .user &#123; width : 256px ; height : 200px &#125;</div><div class="line">    .user[data-name=‘小白吗’] &#123; color : brown &#125;</div><div class="line">    .user[data-name=‘小黑吗&apos;] &#123; color : black &#125;</div><div class="line">&lt;/style&gt;</div></pre></td></tr></table></figure>
+<h3 id="二-字体图标"><a href="#二-字体图标" class="headerlink" title="(二)字体图标"></a>(二)字体图标</h3><h4 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h4><ul>
+<li>字体是矢量图，这意味着在高分辨率下也会完美显示。</li>
+<li>图标字体可以用过font-size属性设置其任何大小，还可以加各种文字效果，包括颜色、Hover状态、透明度、阴影和翻转等效果。可以在任何背景下显示</li>
+<li>可以轻松的用css来控制字体的颜色，大小，阴影</li>
+<li>网页字体支持所有现代浏览器，包括IE低版本。</li>
+</ul>
+<h4 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h4><ul>
+<li>制作成本较高</li>
+<li>只能设定为单一的颜色</li>
+</ul>
+<h4 id="Font-Awesome"><a href="#Font-Awesome" class="headerlink" title="Font Awesome"></a>Font Awesome</h4><p>需要引入<code>font-awesome.min.css</code>文件 。<br>所有的图标都需要两个class类：基础类fa和代表图标专门的类。例如： fa fa-adjust 。<br>进一步了解可以访问该网址 <a href="http://fortawesome.github.io/Font-Awesome/icons/" target="_blank" rel="external">http://fortawesome.github.io/Font-Awesome/icons/</a> 。</p>
+<h4 id="Iconfont-cn"><a href="#Iconfont-cn" class="headerlink" title="Iconfont.cn"></a>Iconfont.cn</h4><p>进一步了解可以访问该网址 <a href="http://iconfont.cn/" target="_blank" rel="external">http://iconfont.cn/</a> 。</p>
+<h3 id="三-widget-窗口部件"><a href="#三-widget-窗口部件" class="headerlink" title="(三)widget 窗口部件"></a>(三)widget 窗口部件</h3><p>原始包中的widgets.html文件，功能有：色块选择、折叠、全屏、删除和切换tab标签。<br>需引用 jarvis.widget.min.js  +  调用pageSetUp ();</p>
+<p><img src="http://obzg8bbu1.bkt.clouddn.com/widget.png" alt=""><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">&lt;section id=&quot;widget-grid&quot; class=&quot;&quot;&gt;</div><div class="line">    &lt;!-- row --&gt;</div><div class="line">    &lt;div class=&quot;row&quot;&gt;</div><div class="line">        &lt;div id=&quot;wid-id-0&quot; class=&quot;jarviswidget jarviswidget-color-darken&quot; data-widget-editbutton=&quot;false&quot; data-widget-deletebutton=&quot;false&quot;&gt;</div><div class="line">            &lt;header&gt;</div><div class="line">                 &lt;span class=&quot;widget-icon&quot;&gt; &lt;i class=&quot;fa fa-table&quot;&gt;&lt;/i&gt; &lt;/span&gt;</div><div class="line">                 &lt;h2&gt;投资者列表&lt;/h2&gt;</div><div class="line">            &lt;/header&gt;</div><div class="line">            &lt;!-- widget div--&gt;</div><div class="line">            &lt;div&gt;</div><div class="line">            &lt;!-- widget content --&gt;</div><div class="line">                &lt;div class=&quot;widget-body no-padding&quot;...&gt;</div><div class="line">            &lt;!-- end widget content --&gt;</div><div class="line">            &lt;/div&gt;</div><div class="line">            &lt;!-- end widget div --&gt;</div><div class="line">        &lt;/div&gt;</div><div class="line">        &lt;div id=&quot;wid-id-1&quot; class=&quot;jarviswidget&quot;&gt; ... &lt;/div&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">&lt;/section&gt;</div></pre></td></tr></table></figure></p>
+<table><br>    <thead><br>    <tr><br>        <th style="width:25%">属性定义</th><br>        <th style="width:45%">描述</th><br>    </tr><br>    </thead><br>    <tbody><br>    <tr><br>        <td>data-widget-deletebutton = “false”</td><br>        <td>删除按钮，默认为True，False为隐藏。</td><br>    </tr><br>    <tr><br>        <td>data-widget-editbutton = “false”</td><br>        <td>设置标题按钮，默认为True，False为隐藏。</td><br>    </tr><br>    <tr><br>        <td>data-widget-fullscreenbutton = “false”</td><br>        <td>全屏按钮，默认为True，False为隐藏。</td><br>    </tr><br>    <tr><td> data-widget-colorbutton = “false”</td><br>    <td>色块选择按钮，默认为True，False为隐藏。</td><br>    </tr><br>    <tr><br>        <td>data-widget-collapsed = “false”</td><br>        <td>折叠按钮，默认为True，False为隐藏。</td><br>    </tr><br>    </tbody><br></table>
+
+<h3 id="四-数据表格"><a href="#四-数据表格" class="headerlink" title="(四)数据表格"></a>(四)数据表格</h3><p>原始包中的datatables.html文件，功能有：快速查找、按栏目筛选、显示／隐藏栏目、导出、分页和设置每页显示行数。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;!—  dataTables需引入的JS文件  -&gt;</div><div class="line">&lt;script src=&quot;js/plugin/datatables/jquery.dataTables.min.js&quot;&gt;&lt;/script&gt;</div><div class="line">&lt;script src=&quot;js/plugin/datatables/dataTables.colVis.min.js&quot;&gt;&lt;/script&gt;</div><div class="line">&lt;script src=&quot;js/plugin/datatables/dataTables.tableTools.min.js&quot;&gt;&lt;/script&gt;</div><div class="line">&lt;script src=&quot;js/plugin/datatables/dataTables.bootstrap.min.js&quot;&gt;&lt;/script&gt;</div><div class="line">&lt;script src=&quot;js/plugin/datatable-responsive/datatables.responsive.min.js&quot;&gt;&lt;/script&gt;</div></pre></td></tr></table></figure></p>
+<p><img src="http://obzg8bbu1.bkt.clouddn.com/datatable.png" alt=""></p>
+<ol>
+<li>HTML document (DOM)</li>
+<li>Javascript (array / objects)</li>
+<li>Ajax sourced data</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">var dataSet = [</div><div class="line">    [&apos;大白&apos;,&apos;134-2463-8341&apos;,&apos;21&apos;,&apos;长沙&apos;,&apos;20160811&apos;],</div><div class="line">    ...</div><div class="line">    ];</div><div class="line">$(document).ready(function() &#123;</div><div class="line">        $(&apos;#demo&apos;).html( &apos;&lt;table cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; border=&quot;0&quot; class=&quot;display&quot; id=&quot;example&quot;&gt;&lt;/table&gt;&apos; );</div><div class="line">        $(&apos;#example&apos;).dataTable( &#123;</div><div class="line">            &quot;data&quot;: dataSet,</div><div class="line">            &quot;columns&quot;: [</div><div class="line">                    &#123; &quot;title&quot;: &quot;姓名&quot; &#125;,</div><div class="line">                    &#123; &quot;title&quot;: &quot;电话&quot; &#125;,</div><div class="line">                    &#123; &quot;title&quot;: &quot;年龄&quot; &#125;,</div><div class="line">                    &#123; &quot;title&quot;: &quot;城市&quot;, &quot;class&quot;: &quot;center&quot; &#125;,</div><div class="line">                    &#123; &quot;title&quot;: &quot;日期&quot;, &quot;class&quot;: &quot;center&quot; &#125;</div><div class="line">            ]</div><div class="line">    &#125; );</div><div class="line">&#125; );</div></pre></td></tr></table></figure>
+<h3 id="五-验证表单"><a href="#五-验证表单" class="headerlink" title="(五)验证表单"></a>(五)验证表单</h3><p>原始包form-templates.html文件。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;!-- 验证表单需引入的JS文件 --&gt;</div><div class="line">&lt;script src=&quot;js/plugin/jquery-validate/jquery.validate.min.js&quot;&gt;&lt;/script&gt;</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div></pre></td><td class="code"><pre><div class="line">$(document).ready(function () &#123;</div><div class="line">    // 该函数用来让widget实现移动、折叠、全屏等操作</div><div class="line">    pageSetUp();</div><div class="line">    var $registerForm = $(&quot;#smart-form-register&quot;).validate(&#123;</div><div class="line"></div><div class="line">        // 鼠标焦点离开必填项输入框时出现的提示信息</div><div class="line">        onfocusout: function (element) &#123;</div><div class="line">            this.element(element);</div><div class="line">        &#125;,</div><div class="line"></div><div class="line">        // 必填项验证条件</div><div class="line">        rules: &#123;</div><div class="line">            username: &#123;</div><div class="line">                required: true</div><div class="line">            &#125;,</div><div class="line">            email: &#123;</div><div class="line">                required: true,</div><div class="line">                email: true</div><div class="line">            &#125;,</div><div class="line">            password: &#123;</div><div class="line">                required: true,</div><div class="line">                minlength: 6</div><div class="line">            &#125;,</div><div class="line">            passwordConfirm: &#123;</div><div class="line">                required: true,</div><div class="line">                minlength: 3,</div><div class="line">                equalTo: &apos;#password&apos;</div><div class="line">            &#125;,</div><div class="line">            phone: &#123;</div><div class="line">                required: true,</div><div class="line">                rangelength: [11, 11]</div><div class="line">            &#125;,</div><div class="line">            gender: &#123;</div><div class="line">                required: true</div><div class="line">            &#125;,</div><div class="line">            terms: &#123;</div><div class="line">                required: true</div><div class="line">            &#125;</div><div class="line">        &#125;,</div><div class="line"></div><div class="line">        // 验证提示信息</div><div class="line">        messages: &#123;</div><div class="line">            username: &#123;</div><div class="line">                required: &apos;请输入您的用户名&apos;</div><div class="line">            &#125;,</div><div class="line"></div><div class="line">            email: &#123;</div><div class="line">                required: &apos;请输入您的邮箱&apos;,</div><div class="line">                email: &apos;请输入有效的邮箱地址&apos;</div><div class="line">            &#125;,</div><div class="line">            password: &#123;</div><div class="line">                required: &apos;请输入密码&apos;</div><div class="line">            &#125;,</div><div class="line">            passwordConfirm: &#123;</div><div class="line">                required: &apos;请再次输入您的密码&apos;,</div><div class="line">                equalTo: &apos;密码不一致，请重新输入&apos;</div><div class="line">            &#125;,</div><div class="line">            phone: &#123;</div><div class="line">                required: &apos;请输入您的手机号码&apos;,</div><div class="line">                rangelength: &apos;手机号应为11位&apos;</div><div class="line">            &#125;,</div><div class="line">            gender: &#123;</div><div class="line">                required: &apos;请选择您的性别&apos;</div><div class="line">            &#125;,</div><div class="line">            terms: &#123;</div><div class="line">                required: &apos;请同意此条款&apos;</div><div class="line">            &#125;</div><div class="line">        &#125;,</div><div class="line"></div><div class="line">        errorPlacement: function (error, element) &#123;</div><div class="line">            error.insertAfter(element.parent());</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<h3 id="六-消息"><a href="#六-消息" class="headerlink" title="(六)消息"></a>(六)消息</h3><p>原始包general-elements.html文件。只要将class类alert-warning、fa-warning更换就可以实现成功（alert-success fa-check）、告知说明（alert-info fa-info）、错误（alert-danger fa-times）三种消息。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;alert alert-warning fade in&quot;&gt;</div><div class="line">    &lt;button class=&quot;close&quot; data-dismiss=&quot;alert&quot;&gt;</div><div class="line">        ×</div><div class="line">    &lt;/button&gt;</div><div class="line">    &lt;i class=&quot;fa-fw fa fa-warning&quot;&gt;&lt;/i&gt;</div><div class="line">    &lt;strong&gt;警告！&lt;/strong&gt; 黄色，颜色值#efe1b3。</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<hr>
+<h3 id="参考网址"><a href="#参考网址" class="headerlink" title="参考网址"></a>参考网址</h3><ol>
+<li><a href="https://wrapbootstrap.com/theme/smartadmin-responsive-webapp-WB0573SK0" target="_blank" rel="external">https://wrapbootstrap.com/theme/smartadmin-responsive-webapp-WB0573SK0</a></li>
+<li><a href="http://v3.bootcss.com/" target="_blank" rel="external">http://v3.bootcss.com/</a></li>
+<li><a href="http://www.runoob.com/jqueryui/jqueryui-tutorial.html" target="_blank" rel="external">http://www.runoob.com/jqueryui/jqueryui-tutorial.html</a></li>
+</ol>
+
+            <div class="clearfix"></div>
+            <hr class="nogutter">
+        </div>
+        <nav class="pagination" role="pagination">
+    
+    <a class="pull-left" href="/Weekly-FrontEndDirty/" style="float: left;">
+        ← 周会分享- 前端黑魔法
+    </a>
+    
+    
+    <a class="pull-right" href="/AjaxStatus/">
+        Ajax Status请求状态 →
+    </a>
+    
+</nav>
+
+        <div class="duoshuo">
+<div class="ds-thread" data-thread-key="Weekly-SmartAdmin/" data-title="周会分享- SmartAdmin" data-url="http://yoursite.com/Weekly-SmartAdmin/"></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"duoshuo_name"};
+(function() {
+	var ds = document.createElement('script');
+	ds.type = 'text/javascript';ds.async = true;
+	ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+	ds.charset = 'UTF-8';
+	(document.getElementsByTagName('head')[0] 
+	 || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script>
+</div>
+    </div>
+</section>
+
+
+      
+<!-- ============================ Footer =========================== -->
+
+<footer>
+    <div class="container">
+            <div class="copy">
+                <p>
+                    &copy; 2014<script>new Date().getFullYear()>2010&&document.write("-"+new Date().getFullYear());</script>, Content By YangQiwang. All Rights Reserved.
+                </p>
+            </div>
+            <div class="social">
+                <ul>
+                    
+                    <li><a href="https://github.com/oo10" title="Github" target="_blank"><i class="icon-github"></i></a>&nbsp;</li>
+                    
+                    
+                    
+                    
+                    
+                    <li><a href="http://weibo.com/272130055" title="Sina-Weibo" target="_blank"><i class="icon-sina-weibo"></i></a>&nbsp;</li>
+                    
+                </ul>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+</footer>
+
+<!-- ============================ END Footer =========================== -->
+      <!-- Load our scripts -->
+<!-- Resizable 'on-demand' full-height hero -->
+<script type="text/javascript">
+    var resizeHero = function () {
+        var hero = $(".cover,.heightblock"),
+            window1 = $(window);
+        hero.css({
+            "height": window1.height()
+        });
+    };
+
+    resizeHero();
+
+    $(window).resize(function () {
+        resizeHero();
+    });
+</script>
+<script src="/js/plugins.min.js"></script><!-- Bootstrap core and concatenated plugins always load here -->
+<script src="/js/jquery.flexslider-min.js"></script><!-- Flexslider plugin -->
+<script src="/js/scripts.js"></script><!-- Theme scripts -->
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$('#intro').find('img').each(function(){
+  var alt = this.alt;
+
+  if (alt){
+    $(this).after('<span class="caption" style="display:none">' + alt + '</span>');
+  }
+
+  $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox" rel="gallery" />');
+});
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+<!-- Initiate flexslider plugin -->
+<script type="text/javascript">
+    $(document).ready(function($) {
+      $('.flexslider').flexslider({
+        animation: "fade",
+        prevText: "",
+        nextText: "",
+        directionNav: true
+      });
+    });
+</script>
+
+</body>
+</html>
