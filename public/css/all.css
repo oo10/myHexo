@@ -3401,7 +3401,7 @@ footer .footer_bottom {
 	color: #fff!important;
 }
 .pagination {
-	width: 66%;
+	width: 100%;
 	display: block;
 	margin: auto;
 }
@@ -3417,6 +3417,7 @@ footer .footer_bottom {
   	white-space: nowrap;
   	margin-bottom: 10px;
 }
+
 .pagination a:hover{
 	background-color: gray;
 	color: #fff;
