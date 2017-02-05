@@ -216,10 +216,242 @@
 <p>　　前端路由，即由前端来维护一个路由规则。实现有两种，一种是利用url的hash，就是常说的锚点(#)，JS通过hashChange事件来监听url的改变，IE7及以下需要用轮询;另一种就是HTML5的History模式，它使url看起来像普通网站那样，以”/“分割，没有#，但页面并没有跳转，不过使用这种模式需要服务端支持，服务端在接收到所有的请求后，都指向同一个html文件，不然会出现404。所以，SPA只有一个html，整个网站所有的内容都在这一个html里，通过js来处理。</p>
 <p>　　前端路由的优点有很多，比如页面持久性，像大部分音乐网站，你都可以在播放歌曲的同时，跳转到别的页面而音乐没有中断，再比如前后端彻底分离。前端路由的框架，通用的有Director，更多还是结合具体框架来用，比如Angular的ngRouter，React的ReactRouter，以及我们后面用到的Vue的vue-router。这也带来了新的开发模式：MVC和MVVM。如今前端也可以MVC了，这也是为什么那么多搞Java的钟爱于Angular。</p>
 <p>　　开发一个前端路由，主要考虑到页面的可插拔、页面的生命周期、内存管理等。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div><div class="line">183</div><div class="line">184</div><div class="line">185</div><div class="line">186</div><div class="line">187</div><div class="line">188</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line"></div><div class="line">    <span class="built_in">window</span>.Router = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line"></div><div class="line">        <span class="keyword">var</span> self = <span class="keyword">this</span>;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">        self.hashList = &#123;&#125;; <span class="comment">/* 路由表 */</span></div><div class="line"></div><div class="line">        self.index = <span class="literal">null</span>;</div><div class="line"></div><div class="line">        self.key = <span class="string">'!'</span>;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">        <span class="built_in">window</span>.onhashchange = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line"></div><div class="line">            self.reload();</div><div class="line"></div><div class="line">        &#125;;</div><div class="line"></div><div class="line">    &#125;;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line"></div><div class="line">     * 添加路由,如果路由已经存在则会覆盖</div><div class="line"></div><div class="line">     * @param addr: 地址</div><div class="line"></div><div class="line">     * @param callback: 回调函数，调用回调函数的时候同时也会传入相应参数</div><div class="line"></div><div class="line">     */</div><div class="line"></div><div class="line">    Router.prototype.add = <span class="function"><span class="keyword">function</span>(<span class="params">addr, callback</span>) </span>&#123;</div><div class="line"></div><div class="line">        <span class="keyword">var</span> self = <span class="keyword">this</span>;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">        self.hashList[addr] = callback;</div><div class="line"></div><div class="line">    &#125;;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line"></div><div class="line">     * 删除路由</div><div class="line"></div><div class="line">     * @param addr: 地址</div><div class="line"></div><div class="line">     */</div><div class="line"></div><div class="line">    Router.prototype.remove = <span class="function"><span class="keyword">function</span>(<span class="params">addr</span>) </span>&#123;</div><div class="line"></div><div class="line">        <span class="keyword">var</span> self = <span class="keyword">this</span>;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">        <span class="keyword">delete</span> self.hashList[addr];</div><div class="line"></div><div class="line">    &#125;;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line"></div><div class="line">     * 设置主页地址</div><div class="line"></div><div class="line">     * @param index: 主页地址</div><div class="line"></div><div class="line">     */</div><div class="line"></div><div class="line">    Router.prototype.setIndex = <span class="function"><span class="keyword">function</span>(<span class="params">index</span>) </span>&#123;</div><div class="line"></div><div class="line">        <span class="keyword">var</span> self = <span class="keyword">this</span>;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">        self.index = index;</div><div class="line"></div><div class="line">    &#125;;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line"></div><div class="line">     * 跳转到指定地址</div><div class="line"></div><div class="line">     * @param addr: 地址值</div><div class="line"></div><div class="line">     */</div><div class="line"></div><div class="line">    Router.prototype.go = <span class="function"><span class="keyword">function</span>(<span class="params">addr</span>) </span>&#123;</div><div class="line"></div><div class="line">        <span class="keyword">var</span> self = <span class="keyword">this</span>;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">        <span class="built_in">window</span>.location.hash = <span class="string">'#'</span> + self.key + addr;</div><div class="line"></div><div class="line">    &#125;;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line"></div><div class="line">     * 重载页面</div><div class="line"></div><div class="line">     */</div><div class="line"></div><div class="line">    Router.prototype.reload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line"></div><div class="line">        <span class="keyword">var</span> self = <span class="keyword">this</span>;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">        <span class="keyword">var</span> hash = <span class="built_in">window</span>.location.hash.replace(<span class="string">'#'</span> + self.key, <span class="string">''</span>);</div><div class="line"></div><div class="line">        <span class="keyword">var</span> addr = hash.split(<span class="string">'/'</span>)[<span class="number">0</span>];</div><div class="line"></div><div class="line">        <span class="keyword">var</span> cb = getCb(addr, self.hashList);</div><div class="line"></div><div class="line">        <span class="keyword">if</span>(cb != <span class="literal">false</span>) &#123;</div><div class="line"></div><div class="line">            <span class="keyword">var</span> arr = hash.split(<span class="string">'/'</span>);</div><div class="line"></div><div class="line">            arr.shift();</div><div class="line"></div><div class="line">            cb.apply(self, arr);</div><div class="line"></div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line"></div><div class="line">            self.index &amp;amp;&amp;amp; self.go(self.index);</div><div class="line"></div><div class="line">        &#125;</div><div class="line"></div><div class="line">    &#125;;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line"></div><div class="line">     * 开始路由，实际上只是为了当直接访问路由路由地址的时候能够及时调用回调</div><div class="line"></div><div class="line">     */</div><div class="line"></div><div class="line">    Router.prototype.start = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line"></div><div class="line">        <span class="keyword">var</span> self = <span class="keyword">this</span>;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">        self.reload();</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line"></div><div class="line">     * 获取callback</div><div class="line"></div><div class="line">     * @return false or callback</div><div class="line"></div><div class="line">     */</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">getCb</span>(<span class="params">addr, hashList</span>) </span>&#123;</div><div class="line"></div><div class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> key <span class="keyword">in</span> hashList) &#123;</div><div class="line"></div><div class="line">            <span class="keyword">if</span>(key == addr) &#123;</div><div class="line"></div><div class="line">                <span class="keyword">return</span> hashList[key]</div><div class="line"></div><div class="line">            &#125;</div><div class="line"></div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;)();</div></pre></td></tr></table></figure>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div></pre></td><td class="code"><pre><div class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf8"</span>&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"./router.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="undefined"></span></div><div class="line"></div><div class="line">    <span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#!index"</span>&gt;</span>go to index<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#!search/SB/shi/ni"</span>&gt;</span>go to search<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="javascript"></span></div><div class="line"></div><div class="line">    <span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line"></div><div class="line">        <span class="keyword">var</span> router = <span class="keyword">new</span> Router();</div><div class="line"></div><div class="line">        router.add(<span class="string">'index'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line"></div><div class="line">            alert(<span class="string">'current page: index'</span>);</div><div class="line"></div><div class="line">        &#125;);</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">        router.add(<span class="string">'search'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">wd, sortType, sortBy</span>) </span>&#123;</div><div class="line"></div><div class="line">            alert(<span class="string">'current page: search'</span> + <span class="string">'\nwd: '</span> + wd + <span class="string">'\nsortType: '</span> + sortType + <span class="string">'\nsortBy: '</span> + sortBy);</div><div class="line"></div><div class="line">        &#125;);</div><div class="line"></div><div class="line">        router.setIndex(<span class="string">'index'</span>);</div><div class="line"></div><div class="line">        router.start();</div><div class="line"></div><div class="line">    &#125;;</div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>转自 <a href="http://www.html5cn.org/article-9782-1.html" target="_blank" rel="external">http://www.html5cn.org/article-9782-1.html</a></p>
+<blockquote>
+<p>Js代码</p>
+</blockquote>
+<pre><code>(function() {
 
+    window.Router = function() {
+
+        var self = this;
+
+
+
+        self.hashList = {}; /* 路由表 */
+
+        self.index = null;
+
+        self.key = &apos;!&apos;;
+
+
+
+        window.onhashchange = function() {
+
+            self.reload();
+
+        };
+
+    };
+
+
+
+    /**
+
+     * 添加路由,如果路由已经存在则会覆盖
+
+     * @param addr: 地址
+
+     * @param callback: 回调函数，调用回调函数的时候同时也会传入相应参数
+
+     */
+
+    Router.prototype.add = function(addr, callback) {
+
+        var self = this;
+
+
+
+        self.hashList[addr] = callback;
+
+    };
+
+
+
+    /**
+
+     * 删除路由
+
+     * @param addr: 地址
+
+     */
+
+    Router.prototype.remove = function(addr) {
+
+        var self = this;
+
+
+
+        delete self.hashList[addr];
+
+    };
+
+
+
+    /**
+
+     * 设置主页地址
+
+     * @param index: 主页地址
+
+     */
+
+    Router.prototype.setIndex = function(index) {
+
+        var self = this;
+
+
+
+        self.index = index;
+
+    };
+
+
+
+    /**
+
+     * 跳转到指定地址
+
+     * @param addr: 地址值
+
+     */
+
+    Router.prototype.go = function(addr) {
+
+        var self = this;
+
+
+
+        window.location.hash = &apos;#&apos; + self.key + addr;
+
+    };
+
+
+
+    /**
+
+     * 重载页面
+
+     */
+
+    Router.prototype.reload = function() {
+
+        var self = this;
+
+
+
+        var hash = window.location.hash.replace(&apos;#&apos; + self.key, &apos;&apos;);
+
+        var addr = hash.split(&apos;/&apos;)[0];
+
+        var cb = getCb(addr, self.hashList);
+
+        if(cb != false) {
+
+            var arr = hash.split(&apos;/&apos;);
+
+            arr.shift();
+
+            cb.apply(self, arr);
+
+        } else {
+
+            self.index &amp;&amp; self.go(self.index);
+
+        }
+
+    };
+
+
+
+    /**
+
+     * 开始路由，实际上只是为了当直接访问路由路由地址的时候能够及时调用回调
+
+     */
+
+    Router.prototype.start = function() {
+
+        var self = this;
+
+
+
+        self.reload();
+
+    }
+
+
+
+    /**
+
+     * 获取callback
+
+     * @return false or callback
+
+     */
+
+    function getCb(addr, hashList) {
+
+        for(var key in hashList) {
+
+            if(key == addr) {
+
+                return hashList[key]
+
+            }
+
+        }
+
+        return false;
+
+    }
+
+})();
+</code></pre><blockquote>
+<p>html代码</p>
+</blockquote>
+<pre><code>    &lt;meta charset=&quot;utf8&quot;&gt;
+
+    &lt;script type=&quot;text/javascript&quot; src=&quot;./router.js&quot;&gt;&lt;/script&gt;
+
+    &lt;style type=&quot;text/css&quot;&gt;
+
+    &lt;/style&gt;
+
+
+
+    &lt;a href=&quot;#!index&quot;&gt;go to index&lt;/a&gt;&lt;br&gt;
+
+    &lt;a href=&quot;#!search/SB/shi/ni&quot;&gt;go to search&lt;/a&gt;
+
+
+&lt;script type=&quot;text/javascript&quot;&gt;
+
+    window.onload = function() {
+
+        var router = new Router();
+
+        router.add(&apos;index&apos;, function() {
+
+            alert(&apos;current page: index&apos;);
+
+        });
+
+
+
+        router.add(&apos;search&apos;, function(wd, sortType, sortBy) {
+
+            alert(&apos;current page: search&apos; + &apos;\nwd: &apos; + wd + &apos;\nsortType: &apos; + sortType + &apos;\nsortBy: &apos; + sortBy);
+
+        });
+
+        router.setIndex(&apos;index&apos;);
+
+        router.start();
+
+    };
+
+&lt;/script&gt;
+</code></pre>
             <div class="clearfix"></div>
             <hr class="nogutter">
         </div>
