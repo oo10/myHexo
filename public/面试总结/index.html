@@ -1,215 +1,350 @@
-<!DOCTYPE html>
-<!--[if lte IE 8 ]>
-<html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
-<![endif]-->
-<!--[if (gte IE 9)|!(IE)]><!-->
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
-<!--<![endif]-->
+<!doctype html>
 
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="cn">
 <head>
-  <title>面试总结 | YangQiwang&#39;s blog</title>
-  <!-- Meta data -->
-    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <meta name="generator" content="YangQiwang's blog">
-    <meta name="author" content="YangQiwang">
-    <meta name="description" content="" />
-    <meta name="keywords" content="" />
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
-    <!-- Favicon, (keep icon in root folder) -->
-    <link rel="Shortcut Icon" href="/img/favicon.ico" type="image/ico">
 
-    <link rel="alternate" href="/atom.xml" title="YangQiwang&#39;s blog" type="application/atom+xml">
-    <link rel="stylesheet" href="/css/all.css" media="screen" type="text/css">
-	
-    <link rel="stylesheet" href="/highlightjs/vs.css" type="text/css">
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
     
     
-
-    <!-- Custom stylesheet, (add custom styles here, always load last) -->
-    <!-- Load our stylesheet for IE8 -->
-    <!--[if IE 8]>
-    <link rel="stylesheet" type="text/css" href="/css/ie8.css" />
-    <![endif]-->
-
-    <!-- jQuery | Load our jQuery, with an alternative source fallback to a local version if request is unavailable -->
-    <script src="/js/jquery-1.11.1.min.js"></script>
-    <script>window.jQuery || document.write('<script src="js/jquery-1.11.1.min.js"><\/script>')</script>
-
-    <!-- Load these in the <head> for quicker IE8+ load times -->
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-    <script src="/js/html5shiv.min.js"></script>
-    <script src="/js/respond.min.js"></script>
-    <![endif]-->
-    <link rel="stylesheet" href="http://lib.yangqiwang.cn/contextMenu.css"/>
-
-
-
-
-
-
-
-
-
-
-  
-  
   
 
   
-  <style>.col-md-8.col-md-offset-2.opening-statement img{display:none;}</style>
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="HTML,JavaScript,面试," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="自用笔记：面试中暴漏出许多平常大意而遗漏的问题，鞭策提醒自己平常要躲注意多方面的自我提升。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="面试总结">
+<meta property="og:url" content="http://yoursite.com/面试总结/index.html">
+<meta property="og:site_name" content="YangQiwang's blog">
+<meta property="og:description" content="自用笔记：面试中暴漏出许多平常大意而遗漏的问题，鞭策提醒自己平常要躲注意多方面的自我提升。">
+<meta property="og:updated_time" content="2016-12-06T08:12:41.121Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="面试总结">
+<meta name="twitter:description" content="自用笔记：面试中暴漏出许多平常大意而遗漏的问题，鞭策提醒自己平常要躲注意多方面的自我提升。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/面试总结/"/>
+
+
+
+
+
+  <title> 面试总结 | YangQiwang's blog </title>
 </head>
 
-<!--
-<body class="post-template">
--->
-<body id="index" class="lightnav animsition">
+<body itemscope itemtype="http://schema.org/WebPage" lang="cn">
 
-      <!-- ============================ Off-canvas navigation =========================== -->
+  
 
-    <div class="sb-slidebar sb-right sb-style-overlay sb-momentum-scrolling">
-        <div class="sb-close" aria-label="Close Menu" aria-hidden="true">
-            <img src="/img/close.png" alt="Close"/>
-        </div>
-        <!-- Lists in Slidebars -->
-        <ul class="sb-menu">
-            <li><a href="/" class="animsition-link" title="Home">Home</a></li>
-            <li><a href="/archives" class="animsition-link" title="archive">archives</a></li>
-            <!-- Dropdown Menu -->
-			 
-            <li>
-                <a class="sb-toggle-submenu">Works<span class="sb-caret"></span></a>
-                <ul class="sb-submenu">
-                    
-                        <li><a href="http://yangqiwang.win/index" target="_BLANK" class="animsition-link">myResume</a></li>
-                    
-                </ul>
-            </li>
-            
-            
-        	<li>
-        		<a class="sb-toggle-submenu">Categories<span class="sb-caret"></span></a>
-            	<ul class="sb-submenu">
-				  	
-				    <li><a href="/categories/Ajax/" class="animsition-link">Ajax<small>(1)</small></a></li>
-				    
-				    <li><a href="/categories/Chrome/" class="animsition-link">Chrome<small>(1)</small></a></li>
-				    
-				    <li><a href="/categories/HTML/" class="animsition-link">HTML<small>(6)</small></a></li>
-				    
-				    <li><a href="/categories/Hexo/" class="animsition-link">Hexo<small>(5)</small></a></li>
-				    
-				    <li><a href="/categories/JavaScript/" class="animsition-link">JavaScript<small>(1)</small></a></li>
-				    
-				    <li><a href="/categories/Skill/" class="animsition-link">Skill<small>(5)</small></a></li>
-				    
-				    <li><a href="/categories/Tool/" class="animsition-link">Tool<small>(3)</small></a></li>
-				    
-				    <li><a href="/categories/WebFront/" class="animsition-link">WebFront<small>(1)</small></a></li>
-				    
-				</ul>
-        	</li>
-			
-            
-            <li>
-                <a class="sb-toggle-submenu">Links<span class="sb-caret"></span></a>
-                <ul class="sb-submenu">
-                    
-                    <li><a href="http://go.kieran.top/" class="animsition-link">Kieran</a></li>
-                    
-                    <li><a href="http://wiki.xiaoyutech.cn/" class="animsition-link">小雨科技wiki</a></li>
-                    
-                </ul>
-            </li>
-            
-        </ul>
-        <!-- Lists in Slidebars -->
-        <ul class="sb-menu secondary">
-            <li><a href="/about.html" class="animsition-link" title="about">About</a></li>
-            <li><a href="/atom.xml" class="animsition-link" title="rss">RSS</a></li>
-        </ul>
-    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
     
-    <!-- ============================ END Off-canvas navigation =========================== -->
+  
 
-    <!-- ============================ #sb-site Main Page Wrapper =========================== -->
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
 
-    <div id="sb-site">
-        <!-- #sb-site - All page content should be contained within this id, except the off-canvas navigation itself -->
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
 
-        <!-- ============================ Header & Logo bar =========================== -->
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">YangQiwang's blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle"></p>
+    
+</div>
 
-        <div id="navigation" class="navbar navbar-fixed-top">
-            <div class="navbar-inner">
-                <div class="container">
-                    <!-- Nav logo -->
-                    <div class="logo">
-                        <a href="/" title="Logo" class="animsition-link">
-                         <img src="/img/logo.png" alt="Logo" width="35px;"/> 
-                        </a>
-                    </div>
-                    <!-- // Nav logo -->
-                    <!-- Info-bar -->
-                    <nav>
-                        <ul class="nav">
-                            <li><a href="/" class="animsition-link">YangQiwang's blog</a></li>
-                            <li class="nolink"><span>Always </span>Creative.</li>
-                            
-                            <li><a href="https://github.com/oo10" title="Github" target="_blank"><i class="icon-github"></i></a></li>
-                            
-                            
-                            
-                            
-                            
-                            <li><a href="http://weibo.com/272130055" title="Sina-Weibo" target="_blank"><i class="icon-sina-weibo"></i></a></li>
-                            
-                            <li class="nolink"><span>Welcome!</span></li>
-                        </ul>
-                    </nav>
-                    <!--// Info-bar -->
-                </div>
-                <!-- // .container -->
-                <div class="learnmore sb-toggle-right">More</div>
-                <button type="button" class="navbar-toggle menu-icon sb-toggle-right" title="More">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar before"></span>
-                <span class="icon-bar main"></span>
-                <span class="icon-bar after"></span>
-                </button>
-            </div>
-            <!-- // .navbar-inner -->
-        </div>
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
 
-        <!-- ============================ Header & Logo bar =========================== -->
+<nav class="site-nav">
+  
 
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
 
       
-<section id="intro">
-    <div class="container">
-        <div class="row col-md-offset-2">
-            <div class="col-md-8">
-    			<span class="post-meta">
-      <time datetime="2016-12-06T06:11:20.000Z" itemprop="datePublished">
-          2016-12-06
-      </time>
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/面试总结/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="YangQiwang">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.gif">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="YangQiwang's blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="YangQiwang's blog" src="">
+    </span>
+  </span>
+
     
-    | 
-    <a href='/tags/HTML/'>HTML</a>,
-    
-    <a href='/tags/JavaScript/'>JavaScript</a>,
-    
-    <a href='/tags/面试/'>面试</a>
-    
-    
-</span>
-                <h1>面试总结</h1>
-            </div>
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                面试总结
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-06T14:11:20+08:00">
+                2016-12-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Skill/" itemprop="url" rel="index">
+                    <span itemprop="name">Skill</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
         </div>
-        <div class="col-md-8 col-md-offset-2">
-      		<p>　　<strong> 自用笔记：</strong>面试中暴漏出许多平常大意而遗漏的问题，鞭策提醒自己平常要躲注意多方面的自我提升。<br><a id="more"></a></p>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>　　<strong> 自用笔记：</strong>面试中暴漏出许多平常大意而遗漏的问题，鞭策提醒自己平常要躲注意多方面的自我提升。<br><a id="more"></a></p>
 <h2 id="面试"><a href="#面试" class="headerlink" title="面试"></a><a href="#面试" title="面试"></a>面试</h2><p>2016年11月17日，1次腾讯电面，11月25日1次百度电面，面试后深感自己web(JavaScript)理论基础不够深，面试中暴漏出许多平常大意而遗漏的问题。腾讯那次是20:27打过来的，由于正好从实习公司下班走在大马路上，环境嘈杂很多问题都不怎么听得清导致思维紧张混乱，甚至有些明明知道答案却不知道考官问的问题指的是什么。特此写下笔记总结，鞭策提醒自己平常要躲注意多方面的自我提升。</p>
 <h2 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a><a href="#HTML" title="HTML"></a>HTML</h2><h3 id="HTML5中新增的语义化元素有哪些？"><a href="#HTML5中新增的语义化元素有哪些？" class="headerlink" title="HTML5中新增的语义化元素有哪些？"></a><a href="#HTML5中新增的语义化元素有哪些？" title="HTML5中新增的语义化元素有哪些？"></a>HTML5中新增的语义化元素有哪些？</h3><ul>
 <li>article 定义文章</li>
@@ -354,127 +489,332 @@
 <li>对React的了解  ( 当时都没听清是问的这个 o(╯□╰)o )</li>
 </ul>
 <h2 id="最后更新时间2016年12月6日"><a href="#最后更新时间2016年12月6日" class="headerlink" title="最后更新时间2016年12月6日"></a><a href="#最后更新时间2016年12月6日" title="最后更新时间2016年12月6日"></a>最后更新时间2016年12月6日</h2>
-            <div class="clearfix"></div>
-            <hr class="nogutter">
-        </div>
-        <nav class="pagination" role="pagination">
-    
-    <a class="pull-left" href="/JavaScript中的各种模块化规范/" style="float: left;">
-        ← JavaScript中的各种模块化规范
-    </a>
-    
-    
-    <a class="pull-right" href="/Weekly-FrontEndDirty/">
-        周会分享- 前端黑魔法 →
-    </a>
-    
-</nav>
-
-        <div class="duoshuo">
-<div class="ds-thread" data-thread-key="面试总结/" data-title="面试总结" data-url="http://yoursite.com/面试总结/"></div>
-<script type="text/javascript">
-var duoshuoQuery = {short_name:"yangqiwang-blog"};
-(function() {
-	var ds = document.createElement('script');
-	ds.type = 'text/javascript';ds.async = true;
-	ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-	ds.charset = 'UTF-8';
-	(document.getElementsByTagName('head')[0] 
-	 || document.getElementsByTagName('body')[0]).appendChild(ds);
-})();
-</script>
-</div>
+      
     </div>
-</section>
 
+    <div>
+      
+        
 
       
-<!-- ============================ Footer =========================== -->
+    </div>
 
-<footer>
-    <div class="container">
-            <div class="copy">
-                <p>Content By YangQiwang. All Rights Reserved.</p>
-                <p>
-                    &copy; 2015<script>new Date().getFullYear()>document.write("-"+new Date().getFullYear());</script> <a href="http://www.miitbeian.gov.cn" style="color: #767D84;">湘ICP备17001911号</a>
-                </p>
-            </div>
-            <div class="social">
-                <ul>
-                    
-                    <li><a href="https://github.com/oo10" title="Github" target="_blank"><i class="icon-github"></i></a>&nbsp;</li>
-                    
-                    
-                    
-                    
-                    
-                    <li><a href="http://weibo.com/272130055" title="Sina-Weibo" target="_blank"><i class="icon-sina-weibo"></i></a>&nbsp;</li>
-                    
-                </ul>
-            </div>
-            <div class="clearfix"> </div>
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/HTML/" rel="tag"># HTML</a>
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+            <a href="/tags/面试/" rel="tag"># 面试</a>
+          
         </div>
-</footer>
-<div id="contextMenu">
-    <a href="javascript:menuRefresh()"><i class="refresh"></i>刷新</a>
-    <a href="javascript:menuForward()"><i class="forward"></i>前进</a>
-    <a href="javascript:menuAbout()"><i class="about"></i>关于</a>
-    <a href="javascript:menuBack()"><i class="back"></i>后退</a>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/Weekly-FrontEndDirty/" rel="next" title="周会分享- 前端黑魔法">
+                <i class="fa fa-chevron-left"></i> 周会分享- 前端黑魔法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/JavaScript中的各种模块化规范/" rel="prev" title="JavaScript中的各种模块化规范">
+                JavaScript中的各种模块化规范 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="YangQiwang" />
+          <p class="site-author-name" itemprop="name">YangQiwang</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">25</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#面试"><span class="nav-number">1.</span> <span class="nav-text">面试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTML"><span class="nav-number">2.</span> <span class="nav-text">HTML</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#HTML5中新增的语义化元素有哪些？"><span class="nav-number">2.1.</span> <span class="nav-text">HTML5中新增的语义化元素有哪些？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#XHTML与HTML的区别"><span class="nav-number">2.2.</span> <span class="nav-text">XHTML与HTML的区别</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JavaScript"><span class="nav-number">3.</span> <span class="nav-text">JavaScript</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数组的操作方法有哪些？各自什么作用？"><span class="nav-number">3.1.</span> <span class="nav-text">数组的操作方法有哪些？各自什么作用？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ajax的优缺点"><span class="nav-number">3.2.</span> <span class="nav-text">ajax的优缺点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ajax工作原理"><span class="nav-number">3.3.</span> <span class="nav-text">ajax工作原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#严格模式的优缺点"><span class="nav-number">3.4.</span> <span class="nav-text">严格模式的优缺点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DOM操作有哪些？"><span class="nav-number">3.5.</span> <span class="nav-text">DOM操作有哪些？</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#创建"><span class="nav-number">3.5.1.</span> <span class="nav-text">创建</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加、移除、替换、插入"><span class="nav-number">3.5.2.</span> <span class="nav-text">添加、移除、替换、插入</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查找"><span class="nav-number">3.5.3.</span> <span class="nav-text">查找</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JS组成"><span class="nav-number">3.6.</span> <span class="nav-text">JS组成</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#判断数组"><span class="nav-number">3.7.</span> <span class="nav-text">判断数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JS值类型和引用类型"><span class="nav-number">3.8.</span> <span class="nav-text">JS值类型和引用类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#变量声明提升"><span class="nav-number">3.9.</span> <span class="nav-text">变量声明提升</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#document-load-与-document-DOMContentLoaded-区别"><span class="nav-number">3.10.</span> <span class="nav-text">document load 与 document DOMContentLoaded 区别</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS"><span class="nav-number">4.</span> <span class="nav-text">CSS</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#书写高效CSS"><span class="nav-number">4.1.</span> <span class="nav-text">书写高效CSS</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他"><span class="nav-number">5.</span> <span class="nav-text">其他</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#GET与POST的区别"><span class="nav-number">5.1.</span> <span class="nav-text">GET与POST的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#跨域访问"><span class="nav-number">5.2.</span> <span class="nav-text">跨域访问</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多域名提供资源"><span class="nav-number">5.3.</span> <span class="nav-text">多域名提供资源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他问题"><span class="nav-number">5.4.</span> <span class="nav-text">其他问题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#最后更新时间2016年12月6日"><span class="nav-number">6.</span> <span class="nav-text">最后更新时间2016年12月6日</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  <!---->
+  <!--&copy; -->
+  <!--<span itemprop="copyrightYear">2017</span>-->
+  <!--<span class="with-love">-->
+    <!--<i class="fa fa-heart"></i>-->
+  <!--</span>-->
+  <span class="author" itemprop="copyrightHolder">Content By YangQiwang. All Rights Reserved.</span>
 </div>
-<script src='http://lib.yangqiwang.cn/contextMenu.js'></script>
 
-<!-- ============================ END Footer =========================== -->
-      <!-- Load our scripts -->
-<!-- Resizable 'on-demand' full-height hero -->
+
+<div>
+&copy; 2015<script>new Date().getFullYear()>document.write("-"+new Date().getFullYear());</script> <a href="http://www.miitbeian.gov.cn">湘ICP备17001911号</a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
 <script type="text/javascript">
-    var resizeHero = function () {
-        var hero = $(".cover,.heightblock"),
-            window1 = $(window);
-        hero.css({
-            "height": window1.height()
-        });
-    };
-
-    resizeHero();
-
-    $(window).resize(function () {
-        resizeHero();
-    });
-</script>
-<script src="/js/plugins.min.js"></script><!-- Bootstrap core and concatenated plugins always load here -->
-<script src="/js/jquery.flexslider-min.js"></script><!-- Flexslider plugin -->
-<script src="/js/scripts.js"></script><!-- Theme scripts -->
-<!-- ͳ�ƴ��� -->
-<span style="display:none"><script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1259228806'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1259228806%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script></span>
-
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
-<script type="text/javascript">
-$('#intro').find('img').each(function(){
-  var alt = this.alt;
-
-  if (alt){
-    $(this).after('<span class="caption" style="display:none">' + alt + '</span>');
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
   }
-
-  $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox" rel="gallery" />');
-});
-(function($){
-  $('.fancybox').fancybox();
-})(jQuery);
 </script>
 
-<!-- Initiate flexslider plugin -->
-<script type="text/javascript">
-    $(document).ready(function($) {
-      $('.flexslider').flexslider({
-        animation: "fade",
-        prevText: "",
-        nextText: "",
-        directionNav: true
-      });
-    });
-</script>
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
 
 </body>
 </html>
