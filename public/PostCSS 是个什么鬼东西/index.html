@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="CSS," />
+  <meta name="keywords" content="JavaScript," />
 
 
 
@@ -87,20 +87,16 @@
 
 
 
-<meta name="description" content="最近有点解到关于PostCSS的一些东西，所以这篇文章将按一个思考和学习的角度来理解一下 PostCSS 到底是一个什么东西。">
+<meta name="description" content="在 JS 中用到二进制或者16进制的机会并不多，但如果用涉及到与 server 进行 socket 通信，是需要将我们所熟悉的十进制转换成相应的二进制或者16进制。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="PostCSS是个什么鬼东西？">
+<meta property="og:title" content="JS 中的进制转换">
 <meta property="og:url" content="http://yangqiwang.cn/PostCSS 是个什么鬼东西/index.html">
 <meta property="og:site_name" content="YangQiwang's blog">
-<meta property="og:description" content="最近有点解到关于PostCSS的一些东西，所以这篇文章将按一个思考和学习的角度来理解一下 PostCSS 到底是一个什么东西。">
-<meta property="og:image" content="https://segmentfault.com/img/bVqy8j">
-<meta property="og:image" content="https://segmentfault.com/img/bVqy8m">
-<meta property="og:image" content="https://segmentfault.com/img/bVqy8H">
-<meta property="og:updated_time" content="2017-02-11T03:52:52.128Z">
+<meta property="og:description" content="在 JS 中用到二进制或者16进制的机会并不多，但如果用涉及到与 server 进行 socket 通信，是需要将我们所熟悉的十进制转换成相应的二进制或者16进制。">
+<meta property="og:updated_time" content="2017-04-17T08:23:44.254Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="PostCSS是个什么鬼东西？">
-<meta name="twitter:description" content="最近有点解到关于PostCSS的一些东西，所以这篇文章将按一个思考和学习的角度来理解一下 PostCSS 到底是一个什么东西。">
-<meta name="twitter:image" content="https://segmentfault.com/img/bVqy8j">
+<meta name="twitter:title" content="JS 中的进制转换">
+<meta name="twitter:description" content="在 JS 中用到二进制或者16进制的机会并不多，但如果用涉及到与 server 进行 socket 通信，是需要将我们所熟悉的十进制转换成相应的二进制或者16进制。">
 
 
 
@@ -134,7 +130,7 @@
 
 
 
-  <title> PostCSS是个什么鬼东西？ | YangQiwang's blog </title>
+  <title> JS 中的进制转换 | YangQiwang's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -281,7 +277,7 @@
             
             
               
-                PostCSS是个什么鬼东西？
+                JS 中的进制转换
               
             
           </h1>
@@ -296,8 +292,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-11T11:21:00+08:00">
-                2017-02-11
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-17T16:22:00+08:00">
+                2017-04-17
               </time>
             
 
@@ -319,8 +315,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/CSS/" itemprop="url" rel="index">
-                    <span itemprop="name">CSS</span>
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
                   </a>
                 </span>
 
@@ -364,120 +360,22 @@
       
 
       
-        <p>最近有点解到关于PostCSS的一些东西，所以这篇文章将按一个思考和学习的角度来理解一下 PostCSS 到底是一个什么东西。</p>
+        <p>在 JS 中用到二进制或者16进制的机会并不多，但如果用涉及到与 server 进行 socket 通信，是需要将我们所熟悉的十进制转换成相应的二进制或者16进制。</p>
 <a id="more"></a>
-<h2 id="一、提出不懂的地方"><a href="#一、提出不懂的地方" class="headerlink" title="一、提出不懂的地方"></a>一、提出不懂的地方</h2><p>很多时候第一次在网上查询 PostCSS 概念的时候，大家都解释成一个后处理器的概念，其实个人觉得这些概念不重要，更为重要的有以下几点：</p>
-<ol>
-<li>它本质上是一个什么东西？</li>
-<li>它能解决我们什么问题？</li>
-<li>它是通过什么方式来解决我们的问题？</li>
-<li>它解决我们的问题是为什么？</li>
-<li>怎么实现与 SASS、LESS、Stylus 相同的功能（因为它们被经常拿来比较）</li>
-<li>它由哪些东西组成？</li>
-<li>既然是程序可以用的，那么它的API呢？</li>
-</ol>
-<p>Q: 这个时候，你应该会问：为什么要将组成和API放到最后呢？</p>
-<p>A: 那是因为我们在认识一个不太清楚的东西的时候，第一次肯定是一个直观的认识：它到底有什么用？而不会说，一来就去深入的研究它。不过这里本质还是要先说一下的，先留个印象。</p>
-<h2 id="二、个个击破"><a href="#二、个个击破" class="headerlink" title="二、个个击破"></a>二、个个击破</h2><h3 id="1-它本质上是一个什么东西？"><a href="#1-它本质上是一个什么东西？" class="headerlink" title="1. 它本质上是一个什么东西？"></a>1. 它本质上是一个什么东西？</h3><ul>
-<li>PostCSS 可以直观的理解为：它就是一个<code>平台、平台、平台</code>，重要的事情来三遍比较爽，哈哈！</li>
-</ul>
-<blockquote>
-<p>为什么说它是一个平台呢？因为我们直接用它，感觉不能干什么事情，但是如果让一些插件在它上面跑，那么将会很强大。</p>
-</blockquote>
-<ul>
-<li>PostCSS 提供了一个解析器，它能够将 CSS 解析成抽象语法树（AST）。</li>
-</ul>
-<p>上面两条看完后，我们可以理解为下面这个模型。</p>
-<p><img src="https://segmentfault.com/img/bVqy8j" alt=""></p>
-<p>所以说，PostCSS 它需要一个插件系统才能够发挥作用。我们可以通过“插件”来传递AST，然后再把AST转换成一个串，最后再输出到目标文件中去。当然，这里是有API可以用，这里先不讲，免得晕了。</p>
-<h3 id="2-它能解决我们什么问题？它是通过什么方式来解决我们的问题？"><a href="#2-它能解决我们什么问题？它是通过什么方式来解决我们的问题？" class="headerlink" title="2. 它能解决我们什么问题？它是通过什么方式来解决我们的问题？"></a>2. 它能解决我们什么问题？它是通过什么方式来解决我们的问题？</h3><p>上面的图很清晰，但是我还是不知道是个什么东西！所以接下来温和点，直接从代码层面来感官的认识一下。</p>
-<ul>
-<li>它能够为 CSS 提供额外的功能；</li>
-<li>通过在 PostCSS 这个平台上，我们能够开发一些插件，来处理我们的CSS，比如热门的：autoprefixer</li>
-<li>我们能够使用JavaScript来开发插件（这点对前端来说很重要）</li>
-</ul>
-<p>好吧，看到一个熟悉的单词了：autoprefixer，这里我们就让它来当栗子吧，可能更容易理解一点。</p>
-<p>首先，我们需要做一些准备，安装好需要的东西。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">// postcss 的命令行工具</div><div class="line">sudo npm install  -g postcss-cli</div><div class="line">// autoprefixer 插件</div><div class="line">sudo npm install -g autoprefixer</div></pre></td></tr></table></figure>
-<p>第一次用命令行能让你更直观去理解它哈，所以请要有一颗折腾的心。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">// 1. 先看下这个命令有哪些参数可以用</div><div class="line">postcss --help</div><div class="line"></div><div class="line">Usage: /usr/local/bin/postcss -use plugin [--config|-c config.json] [--output|-o</div><div class="line">output.css] [input.css]</div><div class="line"></div><div class="line">选项：</div><div class="line">  -c, --config       JSON file with plugin configuration</div><div class="line">  -u, --use          postcss plugin name (can be used multiple times)</div><div class="line">  -o, --output       Output file (stdout if not provided)</div><div class="line">  -d, --dir          Output directory</div><div class="line">  -r, --replace      Replace input file(s) with generated output       [boolean]</div><div class="line">  -s, --syntax       Alternative input syntax parser</div><div class="line">  -p, --parser       Alternative CSS parser</div><div class="line">  -t, --stringifier  Alternative output stringifier</div><div class="line">  -w, --watch        auto-recompile when detecting source changes</div><div class="line">  -v, --version      显示版本号                                        [boolean]</div><div class="line">  -h, --help         显示帮助信息                                      [boolean]</div><div class="line"></div><div class="line">示例：</div><div class="line">  postcss --use autoprefixer -c             Use autoprefixer as a postcss plugin</div><div class="line">  options.json -o screen.css screen.css</div><div class="line">  postcss --use autoprefixer                Pass plugin parameters in</div><div class="line">  --autoprefixer.browsers &quot;&gt; 5%&quot; -o         plugin.option notation</div><div class="line">  screen.css screen.css</div><div class="line">  postcss -u postcss-cachify -u             Use multiple plugins and multiple</div><div class="line">  autoprefixer -d build *.css               input files</div><div class="line"></div><div class="line">Please specify at least one plugin name.</div></pre></td></tr></table></figure>
-<p>PS: 我贴出来是方便大家在看的时候不用电脑……^_^</p>
-<p>好吧，先看一下文件目录，这里我只说一下比较好写的方式，就是将一些参数配置到配置文件中去。</p>
-<p><img src="https://segmentfault.com/img/bVqy8m" alt=""></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">// config.json: 所有的配置</div><div class="line">// p.json: 仅有 autoprefixer 插件的配置</div><div class="line"></div><div class="line">// config.json 的内容</div><div class="line">&#123;</div><div class="line">    &quot;use&quot;: [&quot;autoprefixer&quot;],</div><div class="line">    &quot;input&quot;: &quot;src/index.css&quot;,</div><div class="line">    &quot;output&quot;: &quot;index.css&quot;,</div><div class="line">    &quot;autoprefixer&quot;: &#123;</div><div class="line">        &quot;browsers&quot;: &quot;&gt; 5%&quot;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// p.json 的内容</div><div class="line">&#123;</div><div class="line">    &quot;autoprefixer&quot;: &#123;</div><div class="line">        &quot;browsers&quot;: &quot;&gt; 5%&quot;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>接下来我们在终端里面输入：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">// 最简洁的方式</div><div class="line">postcss -c config.json</div><div class="line">// 稍微复杂一点的方式，这里要用 -i 参数，help里面没有，我是从config.json里面的配置猜出来的，官方的那个写法出不来</div><div class="line">postcss -u autoprefixer -c p.json -i src/index.css -o index.css</div><div class="line">// 最复杂的方式</div><div class="line">// 还是不写比较好。。。</div></pre></td></tr></table></figure>
-<p>跟平时想到的效果一样：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">// src/index.css 中的源码</div><div class="line">`* &#123;</div><div class="line">    transition: all .1s;</div><div class="line">&#125;`</div><div class="line">// 转换过后的代码 index.css</div><div class="line">`* &#123;</div><div class="line">    -webkit-transition: all .1s;</div><div class="line">        transition: all .1s;</div><div class="line">&#125;`</div></pre></td></tr></table></figure>
-<p>好吧，现在肯定就对 PostCSS 有一个感官的认识了，接下来就是需要自己动手去用一下 cssnext 这个插件了～看会发生什么，这里就不写了，也挺好用的，不过应该还是草案状态。</p>
-<p>我们开发不可能用命令行吧，所以这里再接着介绍代码编写，然后用 node 去执行文件的方式。直接上代码吧。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">// 1. 先安装一下需要的库</div><div class="line">npm install postcss --save-dev</div><div class="line">npm install autoprefixer --save-dev</div><div class="line"></div><div class="line">// 2. 其实应该先看看 postcss 的 package.json 文件，来看看包含了些什么，留个印象</div><div class="line"></div><div class="line">// 3. p.js 中的代码</div><div class="line">var postcss = require(&apos;postcss&apos;);</div><div class="line">var autoprefixer = require(&apos;autoprefixer&apos;);</div><div class="line">var fs = require(&apos;fs&apos;);</div><div class="line"></div><div class="line">var css = &apos;* &#123; transition: all .1s; &#125;&apos;;</div><div class="line"></div><div class="line">postcss([autoprefixer])</div><div class="line">    .process(css)</div><div class="line">    .then(function(result) &#123;</div><div class="line">        // 这一行是学习的时候需要的，看一下到底对象里面包含什么</div><div class="line">        console.log(result);</div><div class="line">        if (result.css) &#123;</div><div class="line">            fs.writeFileSync(&apos;index.css&apos;, result.css);</div><div class="line">        &#125;</div><div class="line">        if (result.map) &#123;</div><div class="line">            fs.writeFileSync(&apos;index.css.map&apos;, result.map);</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line"></div><div class="line">// 4. 执行 p.js</div><div class="line">node p</div></pre></td></tr></table></figure>
-<p>好吧，最后的结果和之前用命令行的方式一样，只不过过程不同。这样下来应该对 PostCSS 有了更多的感觉了吧。还没完，不用慌～我们还需要提出一个问题，我都有 SASS 等预处理器了，还拿它来不是又给前端届添乱么？因为这2年东西确实太多了～</p>
-<blockquote>
-<p>记住一句话：存在即合理</p>
-</blockquote>
-<p>既然合理，那么我们就看看它有什么优势呗～</p>
-<h3 id="3-它解决我们的问题是为什么？优势何在？"><a href="#3-它解决我们的问题是为什么？优势何在？" class="headerlink" title="3. 它解决我们的问题是为什么？优势何在？"></a>3. 它解决我们的问题是为什么？优势何在？</h3><p>比如，我们用 SASS 来处理 box-shadow 的前缀，我们需要这样写：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">/* CSS3 box-shadow */</div><div class="line">@mixin box-shadow($top, $left, $blur, $size, $color, $inset: false) &#123;</div><div class="line">    @if $inset &#123;</div><div class="line">        -webkit-box-shadow: inset $top $left $blur $size $color;</div><div class="line">        box-shadow: inset $top $left $blur $size $color;</div><div class="line">    &#125; @else &#123;</div><div class="line">        -webkit-box-shadow: $top $left $blur $size $color;</div><div class="line">        box-shadow: $top $left $blur $size $color;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>使用 PostCSS 我们只需要按标准的 CSS 来写就行了，因为最后 autoprefixer 会帮我们做添加这个事情～</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">box-shadow</span>: 0 0 3<span class="selector-tag">px</span> 5<span class="selector-tag">px</span> <span class="selector-tag">rgba</span>(222, 222, 222, <span class="selector-class">.3</span>);</div></pre></td></tr></table></figure>
-<p>所以，这里就出现了一个经常大家说的未来编码的问题。实际上，PostCSS 改变的是一种开发模式。</p>
-<ul>
-<li>SASS等工具：源代码 -&gt; 生产环境 CSS</li>
-<li>PostCSS：源代码 -&gt; 标准 CSS -&gt; 生产环境 CSS</li>
-</ul>
-<p>这样能体会出优势吧，但是目前大家都是 SASS + PostCSS 这样的开发模式，其实我认为是不错的，取长补短嘛，当然，在 PostCSS 平台上都是可以做到的，只是目前这个过渡期，这样更好，更工程化。接下来我就介绍一些方法来纯粹是用 PostCSS。</p>
-<h3 id="4-怎么实现与-SASS、LESS、Stylus-相同的功能"><a href="#4-怎么实现与-SASS、LESS、Stylus-相同的功能" class="headerlink" title="4. 怎么实现与 SASS、LESS、Stylus 相同的功能"></a>4. 怎么实现与 SASS、LESS、Stylus 相同的功能</h3><p>其实这一节我都不需要写了～列一下插件就行了，因为插件才是实现，PostCSS 只是提供了一个平台。</p>
-<p>其实可以去官方看看：<a href="https://github.com/postcss/postcss" target="_blank" rel="external">插件系统</a></p>
-<p>这里列几个便于理解的插件</p>
-<ul>
-<li>postcss-each</li>
-<li>postcss-for</li>
-<li>postcss-mixins</li>
-<li>postcss-extend</li>
-</ul>
-<p>从名字就能看出来了吧～应该很好理解。</p>
-<h3 id="5-它由哪些东西组成？"><a href="#5-它由哪些东西组成？" class="headerlink" title="5. 它由哪些东西组成？"></a>5. 它由哪些东西组成？</h3><p>其实从官方介绍来看，只包含以下内容：</p>
-<ol>
-<li>CSS Parser</li>
-<li>CSS 节点树 API</li>
-<li>source map 生成器</li>
-<li>生成节点树串</li>
-</ol>
-<p>英文不太好 ＝＝ ，就这 4 部分吧，从第一个图其实也能够看出来。</p>
-<p>其中的 I/O 体现在什么地方呢？好吧，很容易想到，主要体现在：</p>
-<ul>
-<li>Input: <strong>插件程式</strong> 和 <strong>CSS Parser</strong></li>
-<li>Output: 生成节点树串</li>
-</ul>
-<p>CSS Parser 可以理解为一个内部过程，而插件程式主要体现在：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">postcss([ autoprefixer ])</div></pre></td></tr></table></figure>
-<p>最后生成的节点树串体现在：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div></pre></td><td class="code"><pre><div class="line">postcss().process().then(<span class="function"><span class="keyword">function</span> (<span class="params">result</span>) </span>&#123;</div><div class="line">    <span class="comment">// 就是这里了</span></div><div class="line">    <span class="built_in">console</span>.log(result.css);</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">// 现在我贴一下上面 result 对象的一个输出结果</span></div><div class="line"><span class="comment">// 这里我多引入了一个 cssnano 插件</span></div><div class="line"><span class="comment">// 改变的代码就这点，为了更全的看 result</span></div><div class="line"><span class="keyword">var</span> opts = &#123;</div><div class="line">    <span class="attr">from</span>: <span class="string">'src/index.css'</span>,</div><div class="line">    <span class="attr">to</span>: <span class="string">'index.css'</span>,</div><div class="line">    <span class="comment">// 配置 map</span></div><div class="line">    map: &#123; <span class="attr">inline</span>: <span class="literal">false</span> &#125;</div><div class="line">&#125;;</div><div class="line">postcss([ autoprefixer, cssnano() ]).process(css, opts)</div><div class="line"></div><div class="line">Result &#123;</div><div class="line">    <span class="attr">processor</span>: Processor &#123;</div><div class="line">        <span class="comment">// 处理器的版本号</span></div><div class="line">        version: <span class="string">'5.0.10'</span>,</div><div class="line">        <span class="comment">// 加载的一堆插件</span></div><div class="line">        plugins: [</div><div class="line">            [<span class="built_in">Object</span>], [<span class="built_in">Object</span>], [<span class="built_in">Object</span>], [<span class="built_in">Object</span>], [<span class="built_in">Object</span>],</div><div class="line">            [<span class="built_in">Object</span>], [<span class="built_in">Object</span>], [<span class="built_in">Object</span>], [<span class="built_in">Object</span>], [<span class="built_in">Object</span>],</div><div class="line">            [<span class="built_in">Object</span>], [<span class="built_in">Object</span>], [<span class="built_in">Object</span>], [<span class="built_in">Object</span>], [<span class="built_in">Object</span>],</div><div class="line">            [<span class="built_in">Object</span>], [<span class="built_in">Object</span>], [<span class="built_in">Object</span>], [<span class="built_in">Object</span>], [<span class="built_in">Object</span>],</div><div class="line">            [<span class="built_in">Object</span>], [<span class="built_in">Object</span>], [<span class="built_in">Object</span>], [<span class="built_in">Object</span>], [<span class="built_in">Object</span>],</div><div class="line">            [<span class="built_in">Object</span>], [<span class="built_in">Object</span>]</div><div class="line">        ]</div><div class="line">    &#125;,</div><div class="line">    <span class="attr">messages</span>: [],</div><div class="line">    <span class="attr">root</span>: Root &#123;</div><div class="line">        <span class="attr">raws</span>: &#123;</div><div class="line">            <span class="attr">semicolon</span>: <span class="literal">false</span>,</div><div class="line">            <span class="attr">after</span>: <span class="string">''</span></div><div class="line">        &#125;,</div><div class="line">        <span class="attr">type</span>: <span class="string">'root'</span>,</div><div class="line">        <span class="attr">nodes</span>: [</div><div class="line">            [<span class="built_in">Object</span>]</div><div class="line">        ],</div><div class="line">        <span class="attr">source</span>: &#123;</div><div class="line">            <span class="attr">input</span>: [<span class="built_in">Object</span>],</div><div class="line">            <span class="attr">start</span>: [<span class="built_in">Object</span>]</div><div class="line">        &#125;,</div><div class="line">        <span class="attr">_autoprefixerDisabled</span>: <span class="literal">false</span>,</div><div class="line">        <span class="attr">_autoprefixerPrefix</span>: <span class="literal">false</span>,</div><div class="line">        <span class="attr">rawCache</span>: &#123;</div><div class="line">            <span class="attr">colon</span>: <span class="string">':'</span>,</div><div class="line">            <span class="attr">indent</span>: <span class="string">''</span>,</div><div class="line">            <span class="attr">beforeDecl</span>: <span class="string">''</span>,</div><div class="line">            <span class="attr">beforeRule</span>: <span class="string">''</span>,</div><div class="line">            <span class="attr">beforeOpen</span>: <span class="string">''</span>,</div><div class="line">            <span class="attr">beforeClose</span>: <span class="string">''</span>,</div><div class="line">            <span class="attr">beforeComment</span>: <span class="string">''</span>,</div><div class="line">            <span class="attr">after</span>: <span class="string">''</span>,</div><div class="line">            <span class="attr">emptyBody</span>: <span class="string">''</span>,</div><div class="line">            <span class="attr">commentLeft</span>: <span class="string">''</span>,</div><div class="line">            <span class="attr">commentRight</span>: <span class="string">''</span></div><div class="line">        &#125;</div><div class="line">    &#125;,</div><div class="line">    <span class="comment">// 我们代码中配置 opts 变量</span></div><div class="line">    opts: &#123;</div><div class="line">        <span class="attr">from</span>: <span class="string">'src/index.css'</span>,</div><div class="line">        <span class="attr">to</span>: <span class="string">'index.css'</span></div><div class="line">    &#125;,</div><div class="line">    <span class="comment">// 这就是重新生成的 节点树串</span></div><div class="line">    <span class="comment">// 这里有自动补全和高效压缩的效果</span></div><div class="line">    css: <span class="string">'*&#123;-webkit-transition:all .1s;transition:all .1s&#125;'</span>,</div><div class="line">    <span class="comment">// map的文件的配置</span></div><div class="line">    map:</div><div class="line">        SourceMapGenerator &#123;</div><div class="line">            <span class="attr">_file</span>: <span class="string">'index.css'</span>,</div><div class="line">            <span class="attr">_sourceRoot</span>: <span class="literal">null</span>,</div><div class="line">            <span class="attr">_skipValidation</span>: <span class="literal">false</span>,</div><div class="line">            <span class="attr">_sources</span>: ArraySet &#123; <span class="attr">_array</span>: [<span class="built_in">Object</span>], <span class="attr">_set</span>: [<span class="built_in">Object</span>] &#125;,</div><div class="line">            <span class="attr">_names</span>: ArraySet &#123; <span class="attr">_array</span>: [], <span class="attr">_set</span>: &#123;&#125; &#125;,</div><div class="line">            <span class="attr">_mappings</span>: MappingList &#123; <span class="attr">_array</span>: [<span class="built_in">Object</span>], <span class="attr">_sorted</span>: <span class="literal">true</span>, <span class="attr">_last</span>: [<span class="built_in">Object</span>] &#125;,</div><div class="line">            <span class="attr">_sourcesContents</span>: &#123; <span class="string">'$src/index.css'</span>: <span class="string">'* &#123; transition: all .1s; &#125;'</span> &#125; &#125;,</div><div class="line">    <span class="comment">// 这里应该是链式要用的吧，暂时不深究</span></div><div class="line">    lastPlugin: &#123;</div><div class="line">        [<span class="built_in">Function</span>]</div><div class="line">        postcssPlugin: <span class="string">'cssnano-reset-stylecache'</span>,</div><div class="line">            <span class="attr">postcssVersion</span>: <span class="string">'5.0.10'</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>其实吧，这样有点抽象的，还是来看熟悉的 API 吧。</p>
-<p>这里出现了 sourcemap，说明 PostCSS 中的转换功能是它必备的，但是必备并不等于：<strong>源代码与目标代码不能完全一致</strong>。</p>
-<p><img src="https://segmentfault.com/img/bVqy8H" alt=""></p>
-<p>这里吐槽一下 Chrome 的 sourcemap 功能，一坨屎！下面看看 firefox 里面的效果吧。</p>
-<p>这里 firefox 里面就自动映射了<strong>源文件</strong>，非常不错！</p>
-<h3 id="6-既然是程序可以用的，那么它的API呢？"><a href="#6-既然是程序可以用的，那么它的API呢？" class="headerlink" title="6. 既然是程序可以用的，那么它的API呢？"></a>6. 既然是程序可以用的，那么它的API呢？</h3><p>其实官方有 API 的详细解释，我看了一下，一看就明白了，就不再花时间介绍了，大家可以去看看，这样会知道，原来如此～</p>
-<p>PS: 大家可以先看看 Node Common 和 Node相关的，然后再看 plugin</p>
-<p><a href="https://github.com/postcss/postcss/blob/master/docs/api.md" target="_blank" rel="external">官方API</a></p>
-<p>这里看一个 DEMO，主要做 rem 和 px 单位之间的互换，加入 processors 就可以用了，很方便：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> custom = <span class="function"><span class="keyword">function</span>(<span class="params">css, opts</span>)</span>&#123;</div><div class="line">    css.eachDecl(<span class="function"><span class="keyword">function</span>(<span class="params">decl</span>)</span>&#123;</div><div class="line">        decl.value = decl.value.replace(<span class="regexp">/\d+rem/</span>, <span class="function"><span class="keyword">function</span>(<span class="params">str</span>)</span>&#123;</div><div class="line">            <span class="keyword">return</span> <span class="number">16</span> * <span class="built_in">parseFloat</span>(str) + <span class="string">"px"</span>;</div><div class="line">        &#125;);</div><div class="line">    &#125;);</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-<p>开发插件可以看一下 <a href="https://github.com/postcss/postcss/blob/master/docs/guidelines/plugin.md" target="_blank" rel="external">官方插件指南</a></p>
-<p>更细致的地方，之后有时间的时候再写写 ^_^ 一说技术就停不下来了～</p>
-<p>大家在问？我怎么在工程上应用它呢？好吧，使用 gulp, grunt, webpack 都是可以的，我觉得都理解了 PostCSS ，使用这些就很简单了，一查资料，拷贝一份配置就可以开始用了～就这样吧，下次再结合 react 来介绍一下一个叫: postcss-js 的插件，看上去还不错，还没深入用，用到的时候再分享吧。</p>
-<p>其实我也是初学者，只是用了自己的学习方法来梳理成文章，下面都是我看过的文章，部分是引用的。这里就不全部举例了，看的文章有点多。。。</p>
-<h3 id="参考的文章"><a href="#参考的文章" class="headerlink" title="参考的文章"></a>参考的文章</h3><ul>
-<li>最权威的初认识 <a href="https://github.com/postcss/postcss" target="_blank" rel="external">https://github.com/postcss/postcss</a></li>
-<li>一个不错的东西 rework <a href="https://github.com/reworkcss" target="_blank" rel="external">https://github.com/reworkcss</a></li>
-<li>理解 AST 等插件解析技术 <a href="http://rapheal.sinaapp.com/category/js/uglify%E6%BA%90%E7%A0%81/" target="_blank" rel="external">http://rapheal.sinaapp.com/category/js/uglify%E6%BA%90%E7%A0%81/</a></li>
-<li>大漠的系列文章，应用型很强，推荐 <a href="http://www.w3cplus.com/blog/tags/517.html" target="_blank" rel="external">http://www.w3cplus.com/blog/tags/517.html</a></li>
-<li>一个年龄差不多的开发者的解释 <a href="http://acgtofe.com/posts/2015/05/modular-transforming-with-postcss/" target="_blank" rel="external">http://acgtofe.com/posts/2015/05/modular-transforming-with-postcss/</a></li>
-<li>一篇稍微理论化解释的文章 <a href="http://www.oschina.net/translate/its-time-for-everyone-to-learn-about-postcss?cmp" target="_blank" rel="external">http://www.oschina.net/translate/its-time-for-everyone-to-learn-about-postcss?cmp</a></li>
-<li>一个开发模式简单的优劣比较 <a href="http://caibaojian.com/css-processor.html" target="_blank" rel="external">http://caibaojian.com/css-processor.html</a></li>
-<li>原文链接 <a href="https://segmentfault.com/a/1190000003909268" target="_blank" rel="external">https://segmentfault.com/a/1190000003909268</a></li>
-</ul>
+<p>Number.prototype.toString(radix)</p>
+<p>JavaScript 提供了很好的方法给我们可以很方便的进行进制转换，其中 radix 是 2-36 之间的基数，即允许我们转换成相应进制的值，如果没有这个值，该方法将默认换数字为字符串。</p>
+<p>现在我们试下几个简单的例子</p>
+<p>// 错误的写法<br>10.toString()</p>
+<p>// 正确的写法<br>10..toString()<br>这里需要注意，当我们直接用数字而非变量时，是不可以直接调用方法 toString。这样会报以下错误：</p>
+<p>Uncaught SyntaxError: Invalid or unexpected token<br>下面我们将列举转换成二进制、16进制的例子</p>
+<p>// 二进制<br>10..toString(2)     =&gt; “1010”</p>
+<p>// 8进制<br>10..toString(8)     =&gt; “12”</p>
+<p>// 16进制<br>10..toString(16)    =&gt; “a”<br>当我们想要将 8进制或者 16进制转换成10进制或者二进制，不可以直接使用方法 toString，<br>由于上面的例子并非补全8进制或者16进制的格式，因而当我们想要将其转换成十进制时，需先补全格式，再进行转换，如以下例子：</p>
+<p>// 8进制转换为10进制<br>012.toString(10)     =&gt; 10</p>
+<p>// 16进制转换为10进制<br>0x000a.toString(10)  =&gt; 10<br>JS 中的进制转换还是很方便的，对于8进制或者其他进制的数，直接使用时，系统会默认转换为10进制的数字。比如以下例子：</p>
+<p>// 8进制相加<br>012 + 013 = 21</p>
+<p>// 16进制相加<br>0x000a + 0x000b = 21</p>
+<p>// 8进制和16进制相加<br>012 + 0x000b = 21<br>JS 与 C 或者 C++不同的，它主要以十进制进行运算，对于弱类型语言来讲，进制的重要性虽不那么高，但当我们于 server 进行通信时，需要重点关注一下。</p>
 
       
     </div>
@@ -501,7 +399,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/CSS/" rel="tag"># CSS</a>
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
           
         </div>
       
@@ -524,6 +422,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/相等运算符/" rel="prev" title="相等运算符实现规则">
+                相等运算符实现规则 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -538,7 +440,7 @@
     <div class="post-spread">
       
         <div class="ds-share flat" data-thread-key="PostCSS 是个什么鬼东西/"
-     data-title="PostCSS是个什么鬼东西？"
+     data-title="JS 中的进制转换"
      data-content=""
      data-url="http://yangqiwang.cn/PostCSS 是个什么鬼东西/">
   <div class="ds-share-inline">
@@ -568,7 +470,7 @@
   <div class="comments" id="comments">
     
       <div class="ds-thread" data-thread-key="PostCSS 是个什么鬼东西/"
-           data-title="PostCSS是个什么鬼东西？" data-url="http://yangqiwang.cn/PostCSS 是个什么鬼东西/">
+           data-title="JS 中的进制转换" data-url="http://yangqiwang.cn/PostCSS 是个什么鬼东西/">
       </div>
     
   </div>
@@ -592,17 +494,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -615,7 +508,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">25</span>
+                <span class="site-state-item-count">26</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -624,7 +517,7 @@
           
             <div class="site-state-item site-state-categories">
               
-                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">分类</span>
               
             </div>
@@ -633,7 +526,7 @@
           
             <div class="site-state-item site-state-tags">
               
-                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">标签</span>
               
             </div>
@@ -658,22 +551,6 @@
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、提出不懂的地方"><span class="nav-number">1.</span> <span class="nav-text">一、提出不懂的地方</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、个个击破"><span class="nav-number">2.</span> <span class="nav-text">二、个个击破</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-它本质上是一个什么东西？"><span class="nav-number">2.1.</span> <span class="nav-text">1. 它本质上是一个什么东西？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-它能解决我们什么问题？它是通过什么方式来解决我们的问题？"><span class="nav-number">2.2.</span> <span class="nav-text">2. 它能解决我们什么问题？它是通过什么方式来解决我们的问题？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-它解决我们的问题是为什么？优势何在？"><span class="nav-number">2.3.</span> <span class="nav-text">3. 它解决我们的问题是为什么？优势何在？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-怎么实现与-SASS、LESS、Stylus-相同的功能"><span class="nav-number">2.4.</span> <span class="nav-text">4. 怎么实现与 SASS、LESS、Stylus 相同的功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-它由哪些东西组成？"><span class="nav-number">2.5.</span> <span class="nav-text">5. 它由哪些东西组成？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-既然是程序可以用的，那么它的API呢？"><span class="nav-number">2.6.</span> <span class="nav-text">6. 既然是程序可以用的，那么它的API呢？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考的文章"><span class="nav-number">2.7.</span> <span class="nav-text">参考的文章</span></a></li></ol></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
     </div>
